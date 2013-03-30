@@ -19,36 +19,8 @@ namespace Ludo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        enum GameState
-        {
-            StartMenu,
-            Options,
-            OneVsThree,
-            TwoVsTwo,
-            ThreeVsOne,
-            FourVsZero,
-            ZeroVsFour,
-        }
-        GameState CurrentGameState = GameState.StartMenu;
-
-        SoundEffect sound;
-        SoundEffectInstance soundInstance;
-        float soundVolume;
         Sound soundMaster;
-
-        Song[] songList = new Song[3];
-        int song;
-        float songVolume;
         Music musicMaster;
-
-        KeyboardState keyboard;
-        KeyboardState previousKey;
-
-        SpriteFont soundMusic;
-
-        TimeSpan time;
-        TimeSpan songDuration;
-
         Background myBackground;
 
         public Game1()
@@ -63,6 +35,8 @@ namespace Ludo
             graphics.PreferredBackBufferWidth = 800;
 
             this.myBackground = new Background();
+            musicMaster = new Music();
+            soundMaster = new Sound();
         }
 
         /// <summary>
@@ -87,20 +61,11 @@ namespace Ludo
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            musicMaster.LoadContent(Content);
 
-            songList[0] = Content.Load<Song>("130_Staff_Credits_Redux_ZREO");
-            songList[1] = Content.Load<Song>("1-08_Clock_Town_-_Day_1_ZREO");
-            songList[2] = Content.Load<Song>("19_Hyrule_Field_Main_Theme_ZREO");
-            musicMaster = new Music();
-
-            sound = Content.Load<SoundEffect>("01_Title_Theme_ZREO");
-            soundInstance = sound.CreateInstance();
-            soundMaster = new Sound();
-
-            soundMusic = Content.Load<SpriteFont>("Sound_Music");
+            soundMaster.LoadContent(Content);
 
             myBackground.LoadContent(Content);
-
 
             // TODO: use this.Content to load your game content here
         }
@@ -125,24 +90,13 @@ namespace Ludo
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
             {
                 this.Exit();
-                soundInstance.Dispose();
             }
 
             // TODO: Add your update logic here
 
-            previousKey = keyboard;
-            keyboard = Keyboard.GetState();
+            soundMaster.update(gameTime);
 
-            soundMaster.update(gameTime, soundInstance, keyboard, previousKey);
-
-            song = musicMaster.songChosen(previousKey, keyboard, songList);
-            musicMaster.update(gameTime, songList[song], keyboard, previousKey);
-
-            time = MediaPlayer.PlayPosition;
-            songDuration = songList[song].Duration;
-
-            soundVolume = soundInstance.Volume * 10;
-            songVolume = MediaPlayer.Volume * 10;
+            musicMaster.update(gameTime);
 
             base.Update(gameTime);
         }
@@ -162,22 +116,11 @@ namespace Ludo
             //Draw Background
             myBackground.Draw(spriteBatch);
 
+            //Draw Media player
+            musicMaster.Draw(spriteBatch);
 
-            //Draw MediaPlayer text
-            spriteBatch.DrawString(soundMusic,
-            songList[song].Name, new Vector2(100, 100), Color.Black);
-
-            spriteBatch.DrawString(soundMusic,
-                musicMaster.progressbar(time) + " / " + musicMaster.progressbar(songDuration),
-                new Vector2(100, 150), Color.Black);
-
-            spriteBatch.DrawString(soundMusic,
-                "Volume: " + (int)songVolume + " / " + "10",
-                new Vector2(100, 200), Color.Black);
-
-            spriteBatch.DrawString(soundMusic,
-              "sfx: " + (int)soundVolume + " / " + "10",
-                new Vector2(100, 250), Color.Black);
+            //Draw SFX volume
+            soundMaster.Draw(spriteBatch);
 
             spriteBatch.End();
 

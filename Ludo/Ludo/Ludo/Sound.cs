@@ -15,17 +15,44 @@ namespace Ludo
     class Sound
     {
 
+        SoundEffect sound;
+        SoundEffectInstance soundInstance;
+        float soundVolume;
+
+        KeyboardState keyboard;
+        KeyboardState previousKey;
+
+        SpriteFont soundMusic;
+
         public Sound()
         {
 
         }
 
-        public void update(GameTime gameTime, SoundEffectInstance sound, KeyboardState key, KeyboardState previousKey)
+        public void LoadContent(ContentManager content)
         {
-            playSound(key, sound);
-            stopSound(key, sound);
-            pauseSound(key, sound);
-            adjustVolume(previousKey, key, sound);
+            sound = content.Load<SoundEffect>("01_Title_Theme_ZREO");
+            soundInstance = sound.CreateInstance();
+
+            soundMusic = content.Load<SpriteFont>("Sound_Music");
+        }
+
+        public void update(GameTime gameTime)
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            {
+                soundInstance.Dispose();
+            }
+
+            previousKey = keyboard;
+            keyboard = Keyboard.GetState();
+
+            playSound(keyboard, soundInstance);
+            stopSound(keyboard, soundInstance);
+            pauseSound(keyboard, soundInstance);
+            adjustVolume(previousKey, keyboard, soundInstance);
+
+            soundVolume = soundInstance.Volume * 10;
         }
 
         public void playSound(KeyboardState key, SoundEffectInstance sound)
@@ -71,5 +98,11 @@ namespace Ludo
             }
         }
 
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(soundMusic,
+               "sfx: " + (int)soundVolume + " / " + "10",
+                 new Vector2(100, 250), Color.Black);
+        }
     }
 }

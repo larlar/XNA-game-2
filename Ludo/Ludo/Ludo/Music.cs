@@ -15,24 +15,67 @@ namespace Ludo
     class Music
     {
         int song;
+        Song[] songList = new Song[3];
+        float songVolume;
+        float songVolumeReserve;
+
+        bool isMuted = false;
+
+        TimeSpan time;
+        TimeSpan songDuration;
+
+        KeyboardState keyboard;
+        KeyboardState previousKey;
+
+        SpriteFont soundMusic;
+
+        MediaState media;
+
+        
 
         public Music()
         {
 
         }
 
-        public void update(GameTime gameTime, Song song, KeyboardState key, KeyboardState previousKey)
+        public void LoadContent(ContentManager content)
         {
-            playSong(key, song);
-            stopSong(key);
-            pauseSong(key);
-            resumeSong(key);
-            adjustVolume(previousKey, key);
+            songList[0] = content.Load<Song>("130_Staff_Credits_Redux_ZREO");
+            songList[1] = content.Load<Song>("1-08_Clock_Town_-_Day_1_ZREO");
+            songList[2] = content.Load<Song>("19_Hyrule_Field_Main_Theme_ZREO");
+
+            soundMusic = content.Load<SpriteFont>("Sound_Music");
+
+            MediaPlayer.Stop();
+            media = MediaPlayer.State;
         }
 
-        public void playSong(KeyboardState key, Song music)
+        public void update(GameTime gameTime)
         {
-            if (key.IsKeyDown(Keys.Q))
+            media = MediaPlayer.State;
+
+            previousKey = keyboard;
+            keyboard = Keyboard.GetState();
+
+            playSong(keyboard, previousKey, songList[song]);
+            stopSong(keyboard);
+            pauseSong(keyboard, previousKey);
+            resumeSong(keyboard, previousKey);
+            adjustVolume(previousKey, keyboard);
+            muteSong(keyboard, previousKey);
+            unMuteSong(keyboard, previousKey);
+
+            song = songChosen(previousKey, keyboard, songList);
+
+            time = MediaPlayer.PlayPosition;
+            songDuration = songList[song].Duration;
+            songVolume = MediaPlayer.Volume * 10;
+        }
+
+        public void playSong(KeyboardState key, KeyboardState previousKey, Song music)
+        {
+            if (key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State != MediaState.Playing && MediaPlayer.State != MediaState.Paused && 
+                MediaPlayer.State == media )
             {
                 MediaPlayer.Play(music);
             }
@@ -40,23 +83,23 @@ namespace Ludo
 
         public void stopSong(KeyboardState key)
         {
-            if (key.IsKeyDown(Keys.W))
+            if (key.IsKeyDown(Keys.S))
             {
                 MediaPlayer.Stop();
             }
         }
 
-        public void pauseSong(KeyboardState key)
+        public void pauseSong(KeyboardState key, KeyboardState previousKey)
         {
-            if (key.IsKeyDown(Keys.E) && MediaPlayer.State == MediaState.Playing)
+            if (key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State == MediaState.Playing && MediaPlayer.State == media)
             {
                 MediaPlayer.Pause();
             }
         }
 
-        public void resumeSong(KeyboardState key)
+        public void resumeSong(KeyboardState key, KeyboardState previousKey)
         {
-            if (key.IsKeyDown(Keys.R) && MediaPlayer.State == MediaState.Paused)
+            if (key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State == MediaState.Paused && MediaPlayer.State == media)
             {
                 MediaPlayer.Resume();
             }
@@ -64,21 +107,40 @@ namespace Ludo
 
         public void adjustVolume(KeyboardState previousKey, KeyboardState key)
         {
-            if (key.IsKeyDown(Keys.T) && previousKey.IsKeyUp(Keys.T))
+            if (key.IsKeyDown(Keys.Subtract) && previousKey.IsKeyUp(Keys.Subtract))
             {
                 MediaPlayer.Volume -= 0.1f;
             }
 
-            if (key.IsKeyDown(Keys.Y) && previousKey.IsKeyUp(Keys.Y))
+            if (key.IsKeyDown(Keys.Add) && previousKey.IsKeyUp(Keys.Add))
             {
                 MediaPlayer.Volume += 0.1f;
+            }
+        }
+
+        public void muteSong(KeyboardState key, KeyboardState previousKey)
+        {
+            if (key.IsKeyDown(Keys.M) && previousKey.IsKeyUp(Keys.M))
+            {
+                songVolumeReserve = songVolume;
+                MediaPlayer.Volume = 0.0f;
+                isMuted = true;
+            }
+        }
+
+        public void unMuteSong(KeyboardState key, KeyboardState previousKey)
+        {
+            if (key.IsKeyDown(Keys.U) && previousKey.IsKeyUp(Keys.U) && isMuted == true)
+            {
+                MediaPlayer.Volume = songVolumeReserve;
+                isMuted = false;
             }
         }
 
         public int songChosen(KeyboardState previousKey, KeyboardState key, Song[] list)
         {
             int notChanged = song;
-            if (key.IsKeyDown(Keys.U) && previousKey.IsKeyUp(Keys.U))
+            if (key.IsKeyDown(Keys.RightShift) && previousKey.IsKeyUp(Keys.RightShift))
             {
                 if (song == (list.Length - 1))
                 {
@@ -91,7 +153,7 @@ namespace Ludo
                 }
             }
 
-            if (key.IsKeyDown(Keys.I) && previousKey.IsKeyUp(Keys.I))
+            if (key.IsKeyDown(Keys.LeftShift) && previousKey.IsKeyUp(Keys.LeftShift))
             {
                 if (song == 0)
                 {
@@ -121,6 +183,20 @@ namespace Ludo
                 return minutes + ":0" + seconds;
             else
                 return minutes + ":" + seconds;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(soundMusic,
+                songList[song].Name, new Vector2(100, 100), Color.Black);
+
+            spriteBatch.DrawString(soundMusic,
+                progressbar(time) + " / " + progressbar(songDuration),
+                new Vector2(100, 150), Color.Black);
+
+            spriteBatch.DrawString(soundMusic,
+                "Volume: " + (int)songVolume + " / " + "10",
+                new Vector2(100, 200), Color.Black);
         }
 
     }

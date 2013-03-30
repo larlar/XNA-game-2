@@ -1,6 +1,6 @@
+Content\01_Title_Theme_ZREO.xnb
 Content\130_Staff_Credits_Redux_ZREO.xnb
 Content\130_Staff_Credits_Redux_ZREO.wma
-Content\01_Title_Theme_ZREO.xnb
 Content\1-08_Clock_Town_-_Day_1_ZREO.xnb
 Content\1-08_Clock_Town_-_Day_1_ZREO.wma
 Content\19_Hyrule_Field_Main_Theme_ZREO.xnb
