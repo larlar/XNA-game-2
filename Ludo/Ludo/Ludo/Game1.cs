@@ -38,6 +38,7 @@ namespace Ludo
         TimeSpan songDuration;
 
         Background myBackground;
+        Music myMusic;
 
         public Game1()
         {
@@ -147,8 +148,13 @@ namespace Ludo
 
             spriteBatch.Begin();
 
+            //Draw Background
+            myBackground.Draw(spriteBatch);
+
+
+            //Draw MediaPlayer text
             spriteBatch.DrawString(soundMusic,
-                songList[song].Name, new Vector2(100, 100), Color.Black);
+            songList[song].Name, new Vector2(100, 100), Color.Black);
 
             spriteBatch.DrawString(soundMusic,
                 musicMaster.progressbar(time) + " / " + musicMaster.progressbar(songDuration),
@@ -161,9 +167,6 @@ namespace Ludo
             spriteBatch.DrawString(soundMusic,
               "sfx: " + (int)soundVolume + " / " + "10",
                 new Vector2(100, 250), Color.Black);
-
-            //Draw Background
-            myBackground.Draw(spriteBatch);
 
             spriteBatch.End();
 
