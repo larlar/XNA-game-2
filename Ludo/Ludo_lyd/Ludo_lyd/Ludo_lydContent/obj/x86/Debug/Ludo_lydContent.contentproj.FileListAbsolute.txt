@@ -1,1 +1,0 @@
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lydContent\obj\x86\Debug\ResolveAssemblyReference.cache

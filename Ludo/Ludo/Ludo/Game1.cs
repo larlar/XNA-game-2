@@ -19,10 +19,23 @@ namespace Ludo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        SoundEffect sound;
+        SoundEffectInstance soundInstance;
+        Sound soundMaster;
+
+        Song song1;
+        Song[] songList;
+        Music musicMaster;
+
+        KeyboardState keyboard;
+        KeyboardState previousKey;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+            MediaPlayer.IsRepeating = true;
         }
 
         /// <summary>
@@ -40,12 +53,22 @@ namespace Ludo
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
+        /// all of your content.    
         /// </summary>
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+
+            song1 = Content.Load<Song>("130_Staff_Credits_Redux_ZREO");
+            //songList[0] = song1;
+            musicMaster = new Music();
+
+            sound = Content.Load<SoundEffect>("01_Title_Theme_ZREO");
+            soundInstance = sound.CreateInstance();
+            soundMaster = new Sound();
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -68,9 +91,25 @@ namespace Ludo
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            {
                 this.Exit();
+                soundInstance.Dispose();
+            }
 
             // TODO: Add your update logic here
+
+            previousKey = keyboard;
+            keyboard = Keyboard.GetState();
+
+            soundMaster.playSound(keyboard, soundInstance);
+            soundMaster.stopSound(keyboard, soundInstance);
+            soundMaster.pauseSound(keyboard, soundInstance);
+
+            musicMaster.playSong(keyboard, song1);
+            musicMaster.pauseSong(keyboard);
+            musicMaster.stopSong(keyboard);
+            musicMaster.resumeSong(keyboard);
+            musicMaster.adjustVolume(previousKey, keyboard);
 
             base.Update(gameTime);
         }

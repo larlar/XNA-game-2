@@ -1,9 +1,0 @@
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\bin\x86\Debug\Content\01_Title_Theme_ZREO.xnb
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.xnb
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.wma
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\bin\x86\Debug\Ludo_lyd.exe
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\bin\x86\Debug\Ludo_lyd.pdb
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\obj\x86\Debug\Ludo_lyd.exe
-C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo_lyd\Ludo_lyd\Ludo_lyd\obj\x86\Debug\Ludo_lyd.pdb
