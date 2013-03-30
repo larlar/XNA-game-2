@@ -14,14 +14,23 @@ namespace Ludo
 {
     class Sound
     {
+
         public Sound()
         {
 
         }
 
+        public void update(GameTime gameTime, SoundEffectInstance sound, KeyboardState key, KeyboardState previousKey)
+        {
+            playSound(key, sound);
+            stopSound(key, sound);
+            pauseSound(key, sound);
+            adjustVolume(previousKey, key, sound);
+        }
+
         public void playSound(KeyboardState key, SoundEffectInstance sound)
         {
-            if (key.IsKeyDown(Keys.P))
+            if (key.IsKeyDown(Keys.A))
             {
                 sound.Play();
             }
@@ -37,9 +46,28 @@ namespace Ludo
 
         public void pauseSound(KeyboardState key, SoundEffectInstance sound)
         {
-            if (key.IsKeyDown(Keys.E) && sound.State == SoundState.Playing)
+            if (key.IsKeyDown(Keys.D) && sound.State == SoundState.Playing)
             {
                 sound.Pause();
+            }
+        }
+
+        public void adjustVolume(KeyboardState previousKey, KeyboardState key, SoundEffectInstance sound)
+        {
+            if (key.IsKeyDown(Keys.F) && previousKey.IsKeyUp(Keys.F))
+            {
+                if (sound.Volume > 0.1f)
+                {
+                    sound.Volume -= 0.1f;
+                }
+            }
+
+            if (key.IsKeyDown(Keys.G) && previousKey.IsKeyUp(Keys.G))
+            {
+                if (sound.Volume < 1)
+                {
+                    sound.Volume += 0.1f;
+                }
             }
         }
 
