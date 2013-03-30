@@ -19,6 +19,18 @@ namespace Ludo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
+        enum GameState
+        {
+            StartMenu,
+            Options,
+            OneVsThree,
+            TwoVsTwo,
+            ThreeVsOne,
+            FourVsZero,
+            ZeroVsFour,
+        }
+        GameState CurrentGameState = GameState.StartMenu;
+
         SoundEffect sound;
         SoundEffectInstance soundInstance;
         float soundVolume;
@@ -38,7 +50,6 @@ namespace Ludo
         TimeSpan songDuration;
 
         Background myBackground;
-        Music myMusic;
 
         public Game1()
         {
