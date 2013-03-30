@@ -37,12 +37,20 @@ namespace Ludo
         TimeSpan time;
         TimeSpan songDuration;
 
+        Background myBackground;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             MediaPlayer.IsRepeating = true;
+
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 800;
+
+            this.myBackground = new Background();
         }
 
         /// <summary>
@@ -78,6 +86,8 @@ namespace Ludo
             soundMaster = new Sound();
 
             soundMusic = Content.Load<SpriteFont>("Sound_Music");
+
+            myBackground.LoadContent(Content);
 
 
             // TODO: use this.Content to load your game content here
@@ -151,6 +161,9 @@ namespace Ludo
             spriteBatch.DrawString(soundMusic,
               "sfx: " + (int)soundVolume + " / " + "10",
                 new Vector2(100, 250), Color.Black);
+
+            //Draw Background
+            myBackground.Draw(spriteBatch);
 
             spriteBatch.End();
 
