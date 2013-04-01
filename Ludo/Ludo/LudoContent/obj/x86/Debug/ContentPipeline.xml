@@ -7,8 +7,8 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SoundEffectProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\01_Title_Theme_ZREO.xnb</Output>
-      <Time>2013-03-30T17:29:34.8435431+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\01_Title_Theme_ZREO.xnb</Output>
+      <Time>2013-03-30T15:28:16.6729771+01:00</Time>
     </Item>
     <Item>
       <Source>130_Staff_Credits_Redux_ZREO.mp3</Source>
@@ -16,9 +16,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.xnb</Output>
-      <Extra>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.wma</Extra>
-      <Time>2013-03-30T17:29:34.9485491+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.wma</Extra>
+      <Time>2013-03-30T15:28:16.7279802+01:00</Time>
     </Item>
     <Item>
       <Source>1-08_Clock_Town_-_Day_1_ZREO.mp3</Source>
@@ -26,9 +26,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.xnb</Output>
-      <Extra>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.wma</Extra>
-      <Time>2013-03-30T17:29:34.8665444+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.wma</Extra>
+      <Time>2013-03-30T16:45:24.5016737+01:00</Time>
     </Item>
     <Item>
       <Source>19_Hyrule_Field_Main_Theme_ZREO.mp3</Source>
@@ -36,9 +36,9 @@
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.xnb</Output>
-      <Extra>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.wma</Extra>
-      <Time>2013-03-30T17:29:35.0265536+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.wma</Extra>
+      <Time>2013-03-30T16:45:24.5816783+01:00</Time>
     </Item>
     <Item>
       <Source>Sound_Music.spritefont</Source>
@@ -46,8 +46,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Sound_Music.xnb</Output>
-      <Time>2013-03-30T17:29:35.0285537+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Sound_Music.xnb</Output>
+      <Time>2013-03-30T16:45:24.5826783+01:00</Time>
     </Item>
     <Item>
       <Source>blue-block.png</Source>
@@ -55,8 +55,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0305538+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3465429+01:00</Time>
     </Item>
     <Item>
       <Source>blue-bottomleft-block.png</Source>
@@ -64,8 +64,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-bottomleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0305538+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-bottomleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3465429+01:00</Time>
     </Item>
     <Item>
       <Source>blue-bottomright-block.png</Source>
@@ -73,8 +73,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-bottomright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0315538+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-bottomright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.347543+01:00</Time>
     </Item>
     <Item>
       <Source>blue-red-block.png</Source>
@@ -82,8 +82,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-red-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0315538+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-red-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.347543+01:00</Time>
     </Item>
     <Item>
       <Source>blue-topleft-block.png</Source>
@@ -91,8 +91,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-topleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0315538+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-topleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.347543+01:00</Time>
     </Item>
     <Item>
       <Source>blue-topright-block.png</Source>
@@ -100,8 +100,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-topright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0325539+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-topright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.347543+01:00</Time>
     </Item>
     <Item>
       <Source>green-block.png</Source>
@@ -109,8 +109,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0325539+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.348543+01:00</Time>
     </Item>
     <Item>
       <Source>green-blue-block.png</Source>
@@ -118,8 +118,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-blue-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.033554+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-blue-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.348543+01:00</Time>
     </Item>
     <Item>
       <Source>green-bottomleft-block.png</Source>
@@ -127,8 +127,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-bottomleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.033554+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-bottomleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.348543+01:00</Time>
     </Item>
     <Item>
       <Source>green-bottomright-block.png</Source>
@@ -136,8 +136,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-bottomright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.034554+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-bottomright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3495431+01:00</Time>
     </Item>
     <Item>
       <Source>green-topleft-block.png</Source>
@@ -145,8 +145,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-topleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0365541+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-topleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3495431+01:00</Time>
     </Item>
     <Item>
       <Source>green-topright-block.jpg</Source>
@@ -154,8 +154,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-topright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0365541+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-topright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3495431+01:00</Time>
     </Item>
     <Item>
       <Source>green-yellow-block.png</Source>
@@ -163,8 +163,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-yellow-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0365541+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-yellow-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3505431+01:00</Time>
     </Item>
     <Item>
       <Source>red-block.png</Source>
@@ -172,8 +172,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0415544+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3505431+01:00</Time>
     </Item>
     <Item>
       <Source>red-bottomleft-block.png</Source>
@@ -181,8 +181,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-bottomleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0415544+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-bottomleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3505431+01:00</Time>
     </Item>
     <Item>
       <Source>red-bottomright-block.png</Source>
@@ -190,8 +190,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-bottomright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0425545+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-bottomright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3515432+01:00</Time>
     </Item>
     <Item>
       <Source>red-topleft-block.png</Source>
@@ -199,8 +199,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-topleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0425545+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-topleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3515432+01:00</Time>
     </Item>
     <Item>
       <Source>red-topright-block.png</Source>
@@ -208,8 +208,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-topright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0435545+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-topright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3515432+01:00</Time>
     </Item>
     <Item>
       <Source>white-block.png</Source>
@@ -217,8 +217,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\white-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0445546+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\white-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3525432+01:00</Time>
     </Item>
     <Item>
       <Source>x-center-block.png</Source>
@@ -226,8 +226,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\x-center-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0445546+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\x-center-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3525432+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-block.png</Source>
@@ -235,8 +235,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0445546+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3525432+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-bottomleft-block.png</Source>
@@ -244,8 +244,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-bottomleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0455546+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-bottomleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3525432+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-bottomright-block.png</Source>
@@ -253,8 +253,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-bottomright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0455546+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-bottomright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3535433+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-red-block.png</Source>
@@ -262,8 +262,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-red-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0465547+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-red-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3535433+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-topleft-block.png</Source>
@@ -271,8 +271,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-topleft-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0465547+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-topleft-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3535433+01:00</Time>
     </Item>
     <Item>
       <Source>yellow-topright-block.png</Source>
@@ -280,8 +280,62 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-topright-block.xnb</Output>
-      <Time>2013-03-30T17:29:35.0475548+01:00</Time>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-topright-block.xnb</Output>
+      <Time>2013-03-30T17:09:33.3545434+01:00</Time>
+    </Item>
+    <Item>
+      <Source>exit.png</Source>
+      <Name>exit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\exit.xnb</Output>
+      <Time>2013-03-30T19:24:00.347949+01:00</Time>
+    </Item>
+    <Item>
+      <Source>four-players-zero-ai.png</Source>
+      <Name>four-players-zero-ai</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\four-players-zero-ai.xnb</Output>
+      <Time>2013-03-30T19:23:11.3361457+01:00</Time>
+    </Item>
+    <Item>
+      <Source>one-player-three-ai.png</Source>
+      <Name>one-player-three-ai</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\one-player-three-ai.xnb</Output>
+      <Time>2013-03-30T19:22:28.4126906+01:00</Time>
+    </Item>
+    <Item>
+      <Source>three-players-one-ai.png</Source>
+      <Name>three-players-one-ai</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\three-players-one-ai.xnb</Output>
+      <Time>2013-03-30T19:22:56.796314+01:00</Time>
+    </Item>
+    <Item>
+      <Source>two-players-two-ai.png</Source>
+      <Name>two-players-two-ai</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\two-players-two-ai.xnb</Output>
+      <Time>2013-03-30T19:22:42.4024908+01:00</Time>
+    </Item>
+    <Item>
+      <Source>zero-players-four-ai.png</Source>
+      <Name>zero-players-four-ai</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\zero-players-four-ai.xnb</Output>
+      <Time>2013-03-30T19:23:26.8750344+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -289,10 +343,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\LudoContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\LudoContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\LudoContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\LudoContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -321,7 +375,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-01-10T12:52:48.3272759+01:00</Value>
+        <Value>2013-02-04T21:59:16.8515043+01:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

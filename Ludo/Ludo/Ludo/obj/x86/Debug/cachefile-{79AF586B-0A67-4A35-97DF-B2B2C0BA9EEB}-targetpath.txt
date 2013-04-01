@@ -32,3 +32,9 @@ Content\yellow-bottomright-block.xnb
 Content\yellow-red-block.xnb
 Content\yellow-topleft-block.xnb
 Content\yellow-topright-block.xnb
+Content\exit.xnb
+Content\four-players-zero-ai.xnb
+Content\one-player-three-ai.xnb
+Content\three-players-one-ai.xnb
+Content\two-players-two-ai.xnb
+Content\zero-players-four-ai.xnb

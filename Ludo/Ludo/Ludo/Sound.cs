@@ -98,11 +98,14 @@ namespace Ludo
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
+            int screenWidth = graphicsDevice.Viewport.Width;
+            int screenHeight = graphicsDevice.Viewport.Height;
+
             spriteBatch.DrawString(soundMusic,
                "sfx: " + (int)soundVolume + " / " + "10",
-                 new Vector2(100, 250), Color.Black);
+                 new Vector2(screenWidth-400, screenHeight-700), Color.Black);
         }
     }
 }

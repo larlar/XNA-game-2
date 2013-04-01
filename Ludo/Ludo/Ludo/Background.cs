@@ -31,7 +31,7 @@ namespace Ludo
 		    {2,2,2,2,2,2,4,4,4,1,1,1,1,1,1}};
         
         //Create array that will gives the numbers in myArray the right sprites.
-        Texture2D[] textureArray = new Texture2D[26];
+        Texture2D[] textureArray = new Texture2D[27];
 
         // ContentManager that is loadedes textures and position for the objects in to game1
         public void LoadContent(ContentManager content)
@@ -63,11 +63,12 @@ namespace Ludo
             textureArray[22] = content.Load<Texture2D>("green-bottomleft-block");
             textureArray[23] = content.Load<Texture2D>("green-bottomright-block");
             textureArray[24] = content.Load<Texture2D>("green-topleft-block");
-            textureArray[25] = content.Load<Texture2D>("green-topright-block");    
+            textureArray[25] = content.Load<Texture2D>("green-topright-block"); 
         }
 
         // Method that draws the sprites to the screen.
         public void Draw(SpriteBatch spriteBatch)
+            
         {
             for (int y = 0; y < 15; y++) {
                 for (int x = 0; x < 15; x++) {

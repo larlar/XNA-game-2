@@ -72,6 +72,7 @@ namespace Ludo
             songVolume = MediaPlayer.Volume * 10;
         }
 
+
         public void playSong(KeyboardState key, KeyboardState previousKey, Song music)
         {
             if (key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State != MediaState.Playing && MediaPlayer.State != MediaState.Paused && 
@@ -185,18 +186,21 @@ namespace Ludo
                 return minutes + ":" + seconds;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
+            int screenWidth = graphicsDevice.Viewport.Width;
+            int screenHeight = graphicsDevice.Viewport.Height;
+
             spriteBatch.DrawString(soundMusic,
-                songList[song].Name, new Vector2(100, 100), Color.Black);
+                songList[song].Name, new Vector2(screenWidth - 400, screenHeight - 850), Color.Black);
 
             spriteBatch.DrawString(soundMusic,
                 progressbar(time) + " / " + progressbar(songDuration),
-                new Vector2(100, 150), Color.Black);
+                new Vector2(screenWidth - 400, screenHeight - 800), Color.Black);
 
             spriteBatch.DrawString(soundMusic,
                 "Volume: " + (int)songVolume + " / " + "10",
-                new Vector2(100, 200), Color.Black);
+                new Vector2(screenWidth - 400, screenHeight - 750), Color.Black);
         }
 
     }

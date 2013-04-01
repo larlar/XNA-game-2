@@ -78,3 +78,9 @@ C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Resolve
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Ludo.exe
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Ludo.pdb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\exit.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\four-players-zero-ai.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\one-player-three-ai.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\three-players-one-ai.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\two-players-two-ai.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\zero-players-four-ai.xnb
