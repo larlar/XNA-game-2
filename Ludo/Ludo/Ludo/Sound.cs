@@ -104,7 +104,7 @@ namespace Ludo
             int screenHeight = graphicsDevice.Viewport.Height;
 
             spriteBatch.DrawString(soundMusic,
-               "sfx: " + (int)soundVolume + " / " + "10",
+               "sfx: " + Math.Round(soundVolume) + " / " + "10",
                  new Vector2(screenWidth-400, screenHeight-700), Color.Black);
         }
     }
