@@ -111,8 +111,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Background.cs" />
+    <Compile Include="ExitLudo.cs" />
     <Compile Include="FourVsZero.cs" />
-    <Compile Include="GameState.cs" />
+    <Compile Include="GameModel.cs" />
     <Compile Include="MenuButton.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="OneVsThree.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Sound.cs" />
-    <Compile Include="StartMenu.cs" />
     <Compile Include="ThreeVsOne.cs" />
     <Compile Include="TwoVsTwo.cs" />
     <Compile Include="ZeroVsFour.cs" />

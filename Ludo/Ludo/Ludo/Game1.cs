@@ -23,14 +23,15 @@ namespace Ludo
             PlayingMode,
         }
 
-        GameMode gameMode = GameMode.MenuMode;
-        GameLogic currentState;
+        GameMode gameMode;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Sound soundMaster;
         Music musicMaster;
         Background myBackground;
-        MenuButton myButtons;
+        StartMenu menuButton;
+        GameModel currentModel;
+
 
         public Game1()
         {
@@ -44,7 +45,8 @@ namespace Ludo
             myBackground = new Background();
             musicMaster = new Music();
             soundMaster = new Sound();
-            myButtons = new MenuButton();          
+            menuButton = new StartMenu();
+            gameMode = GameMode.MenuMode;
         }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -69,7 +71,7 @@ namespace Ludo
             musicMaster.LoadContent(Content);
             soundMaster.LoadContent(Content);
             myBackground.LoadContent(Content);
-            myButtons.LoadContent(Content);       
+            menuButton.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
@@ -92,41 +94,27 @@ namespace Ludo
                 case GameMode.MenuMode:
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
-                    if (Keyboard.GetState().IsKeyDown(Keys.D1))
+                    GameModel model = menuButton.update();
+                    if (model != null)
                     {
-                        currentState = new OneVsThree();
+                        currentModel = model;
                         gameMode = GameMode.PlayingMode;
-                    }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.D2))
-                    {
-                        currentState = new TwoVsTwo();
-                        gameMode = GameMode.PlayingMode;
-                    }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.D3))
-                    {
-                        currentState = new ThreeVsOne();
-                        gameMode = GameMode.PlayingMode;
-                    }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.D4))
-                    {
-                        currentState = new FourVsZero();
-                        gameMode = GameMode.PlayingMode;
-                    }
-                    else if (Keyboard.GetState().IsKeyDown(Keys.D5))
-                    {
-                        currentState = new ZeroVsFour();
-                        gameMode = GameMode.PlayingMode;
+
+                        if (model.GetType() == typeof(ExitLudo))
+                            Exit();
                     }
                     break;
 
                 case GameMode.PlayingMode:
-                    currentState = currentState.update();
+                    currentModel = currentModel.update(); //returns current state to console. used for internal testing
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                         gameMode = GameMode.MenuMode;
                     break;
+                    
             }
+            Console.WriteLine(gameMode);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
             {
@@ -145,20 +133,20 @@ namespace Ludo
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+
             switch(gameMode){
                 case GameMode.MenuMode:
                     GraphicsDevice.Clear(Color.Coral);
-                    myButtons.Draw(spriteBatch, graphics.GraphicsDevice);
-                    musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
-                    soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
+                    menuButton.Draw(spriteBatch, graphics.GraphicsDevice);
                     break;
+
                 case GameMode.PlayingMode:
                     myBackground.Draw(spriteBatch);
-                    musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
-                    soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
-                    GraphicsDevice.Clear(Color.CornflowerBlue);
                     break;
             }
+
+            musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
+            soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
             spriteBatch.End();
 
             base.Draw(gameTime);

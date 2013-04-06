@@ -38,3 +38,14 @@ Content\one-player-three-ai.xnb
 Content\three-players-one-ai.xnb
 Content\two-players-two-ai.xnb
 Content\zero-players-four-ai.xnb
+Content\Mute.xnb
+Content\Next.xnb
+Content\Pause.xnb
+Content\Play.xnb
+Content\Prev.xnb
+Content\Resume.xnb
+Content\Stop.xnb
+Content\UnMute.xnb
+Content\VolumeDown.xnb
+Content\VolumeUp.xnb
+Content\background.xnb

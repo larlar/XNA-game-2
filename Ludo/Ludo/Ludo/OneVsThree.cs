@@ -11,12 +11,12 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Ludo
 {
-    class OneVsThree: GameLogic
+    class OneVsThree: GameModel
     {
 
         public OneVsThree() { }
        
-        public override GameLogic update()
+        public override GameModel update()
         {
             Console.WriteLine("OneVsThree!");
             return this;

@@ -55,10 +55,7 @@ namespace Ludo
 
         Rectangle[] buttons = new Rectangle[8];
 
-        public Music()
-        {
-
-        }
+        public Music(){}
 
         public void LoadContent(ContentManager content)
         {
