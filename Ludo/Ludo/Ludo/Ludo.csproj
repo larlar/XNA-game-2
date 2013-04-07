@@ -114,7 +114,7 @@
     <Compile Include="ExitLudo.cs" />
     <Compile Include="FourVsZero.cs" />
     <Compile Include="GameModel.cs" />
-    <Compile Include="MenuButton.cs" />
+    <Compile Include="StartMenu.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="OneVsThree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,52 +2,13 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>01_Title_Theme_ZREO.mp3</Source>
-      <Name>01_Title_Theme_ZREO</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\01_Title_Theme_ZREO.xnb</Output>
-      <Time>2013-03-30T15:28:16.6729771+01:00</Time>
-    </Item>
-    <Item>
-      <Source>130_Staff_Credits_Redux_ZREO.mp3</Source>
-      <Name>130_Staff_Credits_Redux_ZREO</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.xnb</Output>
-      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\130_Staff_Credits_Redux_ZREO.wma</Extra>
-      <Time>2013-03-30T15:28:16.7279802+01:00</Time>
-    </Item>
-    <Item>
-      <Source>1-08_Clock_Town_-_Day_1_ZREO.mp3</Source>
-      <Name>1-08_Clock_Town_-_Day_1_ZREO</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.xnb</Output>
-      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\1-08_Clock_Town_-_Day_1_ZREO.wma</Extra>
-      <Time>2013-03-30T16:45:24.5016737+01:00</Time>
-    </Item>
-    <Item>
-      <Source>19_Hyrule_Field_Main_Theme_ZREO.mp3</Source>
-      <Name>19_Hyrule_Field_Main_Theme_ZREO</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.xnb</Output>
-      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\19_Hyrule_Field_Main_Theme_ZREO.wma</Extra>
-      <Time>2013-03-30T16:45:24.5816783+01:00</Time>
-    </Item>
-    <Item>
       <Source>Sound_Music.spritefont</Source>
       <Name>Sound_Music</Name>
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Sound_Music.xnb</Output>
-      <Time>2013-03-30T16:45:24.5826783+01:00</Time>
+      <Time>2013-04-07T22:40:54.6834651+02:00</Time>
     </Item>
     <Item>
       <Source>blue-block.png</Source>
@@ -338,96 +299,6 @@
       <Time>2013-03-30T19:23:26.8750344+01:00</Time>
     </Item>
     <Item>
-      <Source>Mute.png</Source>
-      <Name>Mute</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Mute.xnb</Output>
-      <Time>2013-04-04T17:41:31.67959+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Next.png</Source>
-      <Name>Next</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Next.xnb</Output>
-      <Time>2013-04-04T17:41:31.67959+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Pause.png</Source>
-      <Name>Pause</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Pause.xnb</Output>
-      <Time>2013-04-04T17:41:31.6835902+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Play.png</Source>
-      <Name>Play</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Play.xnb</Output>
-      <Time>2013-04-04T17:41:31.6835902+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Prev.png</Source>
-      <Name>Prev</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Prev.xnb</Output>
-      <Time>2013-04-04T17:41:31.6845903+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Resume.png</Source>
-      <Name>Resume</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Resume.xnb</Output>
-      <Time>2013-04-04T17:41:31.6845903+02:00</Time>
-    </Item>
-    <Item>
-      <Source>Stop.png</Source>
-      <Name>Stop</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Stop.xnb</Output>
-      <Time>2013-04-04T17:41:31.6845903+02:00</Time>
-    </Item>
-    <Item>
-      <Source>UnMute.png</Source>
-      <Name>UnMute</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\UnMute.xnb</Output>
-      <Time>2013-04-04T17:41:31.6845903+02:00</Time>
-    </Item>
-    <Item>
-      <Source>VolumeDown.png</Source>
-      <Name>VolumeDown</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\VolumeDown.xnb</Output>
-      <Time>2013-04-04T17:41:31.6855903+02:00</Time>
-    </Item>
-    <Item>
-      <Source>VolumeUp.png</Source>
-      <Name>VolumeUp</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\VolumeUp.xnb</Output>
-      <Time>2013-04-04T17:41:31.6855903+02:00</Time>
-    </Item>
-    <Item>
       <Source>background.png</Source>
       <Name>background</Name>
       <Importer>TextureImporter</Importer>
@@ -435,6 +306,180 @@
       <Options>None</Options>
       <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\background.xnb</Output>
       <Time>2013-04-04T22:42:32.9626363+02:00</Time>
+    </Item>
+    <Item>
+      <Source>play-button-inactive.png</Source>
+      <Name>play-button-inactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\play-button-inactive.xnb</Output>
+      <Time>2013-04-07T17:25:36.5444094+02:00</Time>
+    </Item>
+    <Item>
+      <Source>play-button-active.png</Source>
+      <Name>play-button-active</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\play-button-active.xnb</Output>
+      <Time>2013-04-07T17:37:52.0984807+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stop-button-active.png</Source>
+      <Name>stop-button-active</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\stop-button-active.xnb</Output>
+      <Time>2013-04-07T17:29:09.468588+02:00</Time>
+    </Item>
+    <Item>
+      <Source>stop-button-inactive.png</Source>
+      <Name>stop-button-inactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\stop-button-inactive.xnb</Output>
+      <Time>2013-04-07T17:29:17.6300548+02:00</Time>
+    </Item>
+    <Item>
+      <Source>pause-button-active.png</Source>
+      <Name>pause-button-active</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\pause-button-active.xnb</Output>
+      <Time>2013-04-07T17:28:28.6242518+02:00</Time>
+    </Item>
+    <Item>
+      <Source>pause-button-inactive.png</Source>
+      <Name>pause-button-inactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\pause-button-inactive.xnb</Output>
+      <Time>2013-04-07T17:28:50.3434941+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mute-button-active.png</Source>
+      <Name>mute-button-active</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\mute-button-active.xnb</Output>
+      <Time>2013-04-07T17:29:36.0361076+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mute-button-inactive.png</Source>
+      <Name>mute-button-inactive</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\mute-button-inactive.xnb</Output>
+      <Time>2013-04-07T17:29:46.9487317+02:00</Time>
+    </Item>
+    <Item>
+      <Source>volume-button-down.png</Source>
+      <Name>volume-button-down</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\volume-button-down.xnb</Output>
+      <Time>2013-04-07T17:31:11.1635485+02:00</Time>
+    </Item>
+    <Item>
+      <Source>volume-button-up.png</Source>
+      <Name>volume-button-up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\volume-button-up.xnb</Output>
+      <Time>2013-04-07T17:30:57.2067503+02:00</Time>
+    </Item>
+    <Item>
+      <Source>next-button.png</Source>
+      <Name>next-button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\next-button.xnb</Output>
+      <Time>2013-04-07T17:51:33.409457+02:00</Time>
+    </Item>
+    <Item>
+      <Source>previous-button.png</Source>
+      <Name>previous-button</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\previous-button.xnb</Output>
+      <Time>2013-04-07T17:51:16.0054616+02:00</Time>
+    </Item>
+    <Item>
+      <Source>volume-field.png</Source>
+      <Name>volume-field</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\volume-field.xnb</Output>
+      <Time>2013-04-07T17:30:25.3559285+02:00</Time>
+    </Item>
+    <Item>
+      <Source>song-title-field.png</Source>
+      <Name>song-title-field</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\song-title-field.xnb</Output>
+      <Time>2013-04-07T18:57:02.9632146+02:00</Time>
+    </Item>
+    <Item>
+      <Source>duration-field.png</Source>
+      <Name>duration-field</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\duration-field.xnb</Output>
+      <Time>2013-04-07T17:31:59.565317+02:00</Time>
+    </Item>
+    <Item>
+      <Source>ClockTown - Day1.mp3</Source>
+      <Name>ClockTown - Day1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\ClockTown - Day1.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\ClockTown - Day1.wma</Extra>
+      <Time>2013-03-30T16:45:24.5016737+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Zelda Title Theme.mp3</Source>
+      <Name>Zelda Title Theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Zelda Title Theme.xnb</Output>
+      <Time>2013-03-30T15:28:16.6729771+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Staff Credits.mp3</Source>
+      <Name>Staff Credits</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Staff Credits.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Staff Credits.wma</Extra>
+      <Time>2013-03-30T15:28:16.7279802+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Hyrule Field Main Theme.mp3</Source>
+      <Name>Hyrule Field Main Theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Hyrule Field Main Theme.xnb</Output>
+      <Extra>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Hyrule Field Main Theme.wma</Extra>
+      <Time>2013-03-30T16:45:24.5816783+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

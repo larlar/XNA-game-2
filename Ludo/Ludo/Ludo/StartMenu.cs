@@ -20,7 +20,6 @@ namespace Ludo
         Texture2D[] buttonArray = new Texture2D[6];
         Rectangle[] rectArray = new Rectangle[6];
         Texture2D menuBackground;
-        GameModel currentState;
         MouseState mouse;
         Rectangle mousePos = new Rectangle(0, 0, 20, 20);
 

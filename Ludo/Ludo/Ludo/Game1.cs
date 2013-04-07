@@ -111,10 +111,8 @@ namespace Ludo
                     musicMaster.update(gameTime);
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                         gameMode = GameMode.MenuMode;
-                    break;
-                    
+                    break;       
             }
-            Console.WriteLine(gameMode);
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
             {
@@ -142,11 +140,12 @@ namespace Ludo
 
                 case GameMode.PlayingMode:
                     myBackground.Draw(spriteBatch);
+                    GraphicsDevice.Clear(Color.LightBlue);
                     break;
             }
 
             musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
-            soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
+            //soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
             spriteBatch.End();
 
             base.Draw(gameTime);

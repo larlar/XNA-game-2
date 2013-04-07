@@ -1,10 +1,3 @@
-Content\01_Title_Theme_ZREO.xnb
-Content\130_Staff_Credits_Redux_ZREO.xnb
-Content\130_Staff_Credits_Redux_ZREO.wma
-Content\1-08_Clock_Town_-_Day_1_ZREO.xnb
-Content\1-08_Clock_Town_-_Day_1_ZREO.wma
-Content\19_Hyrule_Field_Main_Theme_ZREO.xnb
-Content\19_Hyrule_Field_Main_Theme_ZREO.wma
 Content\Sound_Music.xnb
 Content\blue-block.xnb
 Content\blue-bottomleft-block.xnb
@@ -38,14 +31,26 @@ Content\one-player-three-ai.xnb
 Content\three-players-one-ai.xnb
 Content\two-players-two-ai.xnb
 Content\zero-players-four-ai.xnb
-Content\Mute.xnb
-Content\Next.xnb
-Content\Pause.xnb
-Content\Play.xnb
-Content\Prev.xnb
-Content\Resume.xnb
-Content\Stop.xnb
-Content\UnMute.xnb
-Content\VolumeDown.xnb
-Content\VolumeUp.xnb
 Content\background.xnb
+Content\play-button-inactive.xnb
+Content\play-button-active.xnb
+Content\stop-button-active.xnb
+Content\stop-button-inactive.xnb
+Content\pause-button-active.xnb
+Content\pause-button-inactive.xnb
+Content\mute-button-active.xnb
+Content\mute-button-inactive.xnb
+Content\volume-button-down.xnb
+Content\volume-button-up.xnb
+Content\next-button.xnb
+Content\previous-button.xnb
+Content\volume-field.xnb
+Content\song-title-field.xnb
+Content\duration-field.xnb
+Content\ClockTown - Day1.xnb
+Content\ClockTown - Day1.wma
+Content\Zelda Title Theme.xnb
+Content\Staff Credits.xnb
+Content\Staff Credits.wma
+Content\Hyrule Field Main Theme.xnb
+Content\Hyrule Field Main Theme.wma

@@ -28,7 +28,7 @@ namespace Ludo
         TimeSpan time;
         TimeSpan songDuration;
 
-        KeyboardState keyboard;
+        KeyboardState key;
         KeyboardState previousKey;
 
         MouseState mouse;
@@ -36,32 +36,37 @@ namespace Ludo
         Rectangle mousePos;
         Rectangle prevMousePos;
 
+
         //Font for the writing
         SpriteFont soundMusic;
-
         MediaState media;
 
         //Media player buttons
-        Texture2D play;
-        Texture2D stop;
-        Texture2D resume;
-        Texture2D pause;
-        Texture2D mute;
-        Texture2D unMute;
+        Texture2D playInactive;
+        Texture2D playActive;
+        Texture2D stopInactive;
+        Texture2D stopActive;
+        Texture2D pauseInactive;
+        Texture2D pauseActive;
+        Texture2D muteInactive;
+        Texture2D muteActive;
         Texture2D volumeUp;
         Texture2D volumeDown;
         Texture2D prev;
         Texture2D next;
+        Texture2D volumeBG;
+        Texture2D titleBG;
+        Texture2D durationBG;
 
-        Rectangle[] buttons = new Rectangle[8];
+        Rectangle[] buttons = new Rectangle[11];
 
         public Music(){}
 
         public void LoadContent(ContentManager content)
         {
-            songList[0] = content.Load<Song>("130_Staff_Credits_Redux_ZREO");
-            songList[1] = content.Load<Song>("1-08_Clock_Town_-_Day_1_ZREO");
-            songList[2] = content.Load<Song>("19_Hyrule_Field_Main_Theme_ZREO");
+            songList[0] = content.Load<Song>("Staff Credits");
+            songList[1] = content.Load<Song>("ClockTown - Day1");
+            songList[2] = content.Load<Song>("Hyrule Field Main Theme");
 
             soundMusic = content.Load<SpriteFont>("Sound_Music");
 
@@ -71,30 +76,23 @@ namespace Ludo
             MediaPlayer.Stop();
             media = MediaPlayer.State;
 
-            mousePos = new Rectangle(0,0,20,20);
-            prevMousePos = new Rectangle(0, 0, 20, 20);
-
-            play = content.Load<Texture2D>("Play");
-            stop = content.Load<Texture2D>("Stop");
-            resume = content.Load<Texture2D>("Resume");
-            pause = content.Load<Texture2D>("Pause");
-            mute = content.Load<Texture2D>("Mute");
-            unMute = content.Load<Texture2D>("UnMute");
-            volumeUp = content.Load<Texture2D>("VolumeUp");
-            volumeDown = content.Load<Texture2D>("VolumeDown");
-            prev = content.Load<Texture2D>("Prev");
-            next = content.Load<Texture2D>("Next");
-
-            buttons[0] = new Rectangle(1200, 300, 200, 50);
-            buttons[1] = new Rectangle(1200, 400, 200, 50);
-            buttons[2] = new Rectangle(1200, 500, 200, 50);
-            buttons[3] = new Rectangle(1200, 600, 200, 50);
-            
-
-            buttons[4] = new Rectangle(1175, 700, 50, 50);
-            buttons[5] = new Rectangle(1250, 700, 50, 50);
-            buttons[6] = new Rectangle(1325, 700, 50, 50);
-            buttons[7] = new Rectangle(1400, 700, 50, 50);
+            mousePos = new Rectangle(0,0,1,1);
+            prevMousePos = new Rectangle(0, 0, 1, 1);
+            playInactive = content.Load<Texture2D>("play-button-inactive");
+            playActive = content.Load<Texture2D>("play-button-active");
+            stopInactive = content.Load<Texture2D>("stop-button-inactive");
+            stopActive = content.Load<Texture2D>("stop-button-active");
+            pauseInactive = content.Load<Texture2D>("pause-button-inactive");
+            pauseActive = content.Load<Texture2D>("pause-button-active");
+            muteInactive = content.Load<Texture2D>("mute-button-inactive");
+            muteActive = content.Load<Texture2D>("mute-button-active");
+            volumeUp = content.Load<Texture2D>("volume-button-up");
+            volumeDown = content.Load<Texture2D>("volume-button-down");
+            prev = content.Load<Texture2D>("previous-button");
+            next = content.Load<Texture2D>("next-button");
+            volumeBG = content.Load<Texture2D>("volume-field");
+            titleBG = content.Load<Texture2D>("song-title-field");
+            durationBG = content.Load<Texture2D>("duration-field");
         }
 
         public void update(GameTime gameTime)
@@ -104,8 +102,8 @@ namespace Ludo
             muteChanged = isMuted;
 
             //Preventing multiple presses in one click
-            previousKey = keyboard;
-            keyboard = Keyboard.GetState();
+            previousKey = key;
+            key = Keyboard.GetState();
 
             //Preventing multiple presses in one click
             previousMouse = mouse;
@@ -113,17 +111,15 @@ namespace Ludo
 
             mousePos.X = mouse.X;
             mousePos.Y = mouse.Y;
+            
+            playSong();
+            pauseSong();
+            stopSong();
+            adjustVolume();
+            muteSong();
+            unMuteSong();
 
-            //Checking status of media player, the arguments arent really neccesarry, but added for flexsibility (example: using methods outside music.cs)
-            playSong(keyboard, previousKey, mouse, previousMouse, mousePos, buttons[0], songList[song]);
-            stopSong(keyboard, mouse, previousMouse, mousePos, buttons[1]);
-            pauseSong(keyboard, previousKey, mouse, previousMouse, mousePos, buttons[2]);
-            resumeSong(keyboard, previousKey, mouse, previousMouse, mousePos, buttons[2]);
-            adjustVolume(previousKey, keyboard, mouse, previousMouse, mousePos, buttons);
-            muteSong(keyboard, previousKey, mouse, previousMouse, mousePos, buttons[3]);
-            unMuteSong(keyboard, previousKey, mouse, previousMouse, mousePos, buttons[3]);
-
-            song = songChosen(previousKey, keyboard, songList, mouse, previousMouse, mousePos, buttons);
+            song = songChosen();
 
             time = MediaPlayer.PlayPosition;
             songDuration = songList[song].Duration;
@@ -131,118 +127,103 @@ namespace Ludo
         }
 
 
-        public void playSong(KeyboardState key, KeyboardState previousKey, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos, Song music)
+        public void playSong()
         {
             if ((key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State != MediaState.Playing && MediaPlayer.State != MediaState.Paused &&
                 MediaPlayer.State == media) || 
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released
+                (mousePos.Intersects(buttons[0]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released
                 && MediaPlayer.State != MediaState.Playing && MediaPlayer.State != MediaState.Paused && MediaPlayer.State == media))
             {
-                MediaPlayer.Play(music);
+                Console.WriteLine("play song");
+                MediaPlayer.Play(songList[song]);
             }
+            //allows to resume if paused
+            if (media == MediaState.Paused && (mousePos.Intersects(buttons[0]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
+                MediaPlayer.Resume();                
         }
 
-        public void stopSong(KeyboardState key, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos)
-        {
-            if (key.IsKeyDown(Keys.S) || 
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released))
-            {
-                MediaPlayer.Stop();
-            }
-        }
-
-        public void pauseSong(KeyboardState key, KeyboardState previousKey, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos)
+        public void pauseSong()
         {
             if ((key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State == MediaState.Playing && MediaPlayer.State == media) ||
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released
+                (mousePos.Intersects(buttons[1]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released
                 && MediaPlayer.State == MediaState.Playing && MediaPlayer.State == media))
             {
+                Console.WriteLine("pause");
                 MediaPlayer.Pause();
             }
         }
 
-        public void resumeSong(KeyboardState key, KeyboardState previousKey, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos)
+        public void stopSong()
         {
-            if ((key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P) && MediaPlayer.State == MediaState.Paused && MediaPlayer.State == media) ||
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released
-                && MediaPlayer.State == MediaState.Paused && MediaPlayer.State == media))
+            if (key.IsKeyDown(Keys.S) || 
+                (mousePos.Intersects(buttons[2]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
-                MediaPlayer.Resume();
+                Console.WriteLine("stop song");
+                MediaPlayer.Stop();
             }
         }
 
-        public void adjustVolume(KeyboardState previousKey, KeyboardState key, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle[] buttonPos)
+        public void adjustVolume()
         {
             if ((key.IsKeyDown(Keys.Subtract) && previousKey.IsKeyUp(Keys.Subtract)) ||
-                (mousePos.Intersects(buttonPos[5]) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released))
+                (mousePos.Intersects(buttons[6]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
                 MediaPlayer.Volume -= 0.1f;
             }
 
             if ((key.IsKeyDown(Keys.Add) && previousKey.IsKeyUp(Keys.Add)) ||
-                (mousePos.Intersects(buttonPos[6]) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released))
+                (mousePos.Intersects(buttons[5]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
                 MediaPlayer.Volume += 0.1f;
+                isMuted = false;
             }
         }
 
-        public void muteSong(KeyboardState key, KeyboardState previousKey, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos)
+        public void muteSong()
         {
             if ((key.IsKeyDown(Keys.M) && previousKey.IsKeyUp(Keys.M) && isMuted == false && muteChanged == isMuted) ||
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released && isMuted == false && muteChanged == isMuted))
+                (mousePos.Intersects(buttons[3]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released && isMuted == false && muteChanged == isMuted))
             {
+                Console.WriteLine("mute");
                 songVolumeReserve = songVolume/10f;
                 MediaPlayer.Volume = 0.0f;
                 isMuted = true;
             }
         }
 
-        public void unMuteSong(KeyboardState key, KeyboardState previousKey, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle buttonPos)
+        public void unMuteSong()
         {
             if ((key.IsKeyDown(Keys.M) && previousKey.IsKeyUp(Keys.M) && isMuted == true && muteChanged == isMuted) ||
-                (mousePos.Intersects(buttonPos) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released && isMuted == true && muteChanged == isMuted))
+                (mousePos.Intersects(buttons[3]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released && isMuted == true && muteChanged == isMuted))
             {
                 MediaPlayer.Volume = songVolumeReserve;
                 isMuted = false;
             }
         }
 
-        public int songChosen(KeyboardState previousKey, KeyboardState key, Song[] list, MouseState mouse, MouseState prevMouse, Rectangle mousePos, Rectangle[] buttonPos)
+        public int songChosen()
         {
             int notChanged = song;
             if ((key.IsKeyDown(Keys.RightShift) && previousKey.IsKeyUp(Keys.RightShift)) ||
-                (mousePos.Intersects(buttonPos[4]) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released))
+                (mousePos.Intersects(buttons[8]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
-                if (song == (list.Length - 1))
-                {
+                if (song == (songList.Length - 1))
                     song = 0;
-                }
-
                 else
-                {
                     song += 1;
-                }
             }
 
             if ((key.IsKeyDown(Keys.LeftShift) && previousKey.IsKeyUp(Keys.LeftShift)) ||
-                (mousePos.Intersects(buttonPos[7]) && mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Released))
+                (mousePos.Intersects(buttons[7]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
                 if (song == 0)
-                {
-                    song = (list.Length - 1);
-                }
-
+                    song = (songList.Length - 1);
                 else
-                {
                     song -= 1;
-                }
             }
 
             if (song != notChanged)
-            {
-                MediaPlayer.Play(list[song]);
-            }
-
+                MediaPlayer.Play(songList[song]);
             return song;
         }
 
@@ -262,60 +243,78 @@ namespace Ludo
             int screenWidth = graphicsDevice.Viewport.Width;
             int screenHeight = graphicsDevice.Viewport.Height;
 
-            buttons[0] = new Rectangle(screenWidth - 400, screenHeight - 600, 200, 50);
-            buttons[1] = new Rectangle(screenWidth - 400, screenHeight - 500, 200, 50);
-            buttons[2] = new Rectangle(screenWidth - 400, screenHeight - 400, 200, 50);
-            buttons[3] = new Rectangle(screenWidth - 400, screenHeight - 300, 200, 50);
+            buttons[0] = new Rectangle(screenWidth - 260, 45, 31, 31); //play (260, 45)
+            buttons[1] = new Rectangle(screenWidth - 230, 45, 31, 31); //pause (230,45)
+            buttons[2] = new Rectangle(screenWidth - 200, 45, 31, 31); //stop
+            buttons[3] = new Rectangle(screenWidth - 170, 45, 31, 31); //mute
+            buttons[4] = new Rectangle(screenWidth - 140, 45, 80, 31); //volumeBG
+            buttons[5] = new Rectangle(screenWidth - 61, 45, 31, 31); //volumeUp
+            buttons[6] = new Rectangle(screenWidth - 31, 45, 31, 31); //volumeDown
+            buttons[7] = new Rectangle(screenWidth - 260, 75, 121, 16); //previousSong
+            buttons[8] = new Rectangle(screenWidth - 140, 75, 140, 16); //nextSong
+            buttons[9] = new Rectangle(screenWidth - 260, 0, 200, 46); //songtitleBG
+            buttons[10] = new Rectangle(screenWidth - 61, 0, 61, 46); //durationBG   
 
-            buttons[4] = new Rectangle(screenWidth - 425, screenHeight - 200, 50, 50);
-            buttons[5] = new Rectangle(screenWidth - 350, screenHeight - 200, 50, 50);
-            buttons[6] = new Rectangle(screenWidth - 275, screenHeight - 200, 50, 50);
-            buttons[7] = new Rectangle(screenWidth - 200, screenHeight - 200, 50, 50);
+            //PLAY BUTTON [0]
+            if (media == MediaState.Playing)
+                spriteBatch.Draw(playActive, buttons[0], Color.White);
+            else
+                spriteBatch.Draw(playInactive, buttons[0], Color.White);
+
+            //PAUSE BUTTON [1]
+            if (media != MediaState.Paused)
+                spriteBatch.Draw(pauseInactive, buttons[1], Color.White);
+            else
+                spriteBatch.Draw(pauseActive, buttons[1], Color.White);
+
+            //STOP BUTTON [2]
+            if (media != MediaState.Stopped)
+                spriteBatch.Draw(stopInactive, buttons[2], Color.White);
+            else
+                spriteBatch.Draw(stopActive, buttons[2], Color.White);
+
+            //MUTE BUTTON [3]
+            if (isMuted)
+                spriteBatch.Draw(muteActive, buttons[3], Color.White);    
+            else
+                spriteBatch.Draw(muteInactive, buttons[3], Color.White);
+
+            //VOLUME BACKGROUND [4]
+            spriteBatch.Draw(volumeBG, buttons[4], Color.White);
+
+            //VOLUME UP [5]
+            spriteBatch.Draw(volumeUp, buttons[5], Color.White);
+
+            //VOLUME DOWN [6]
+            spriteBatch.Draw(volumeDown, buttons[6], Color.White);
+
+            //PREVIOUS SONG [7]
+            spriteBatch.Draw(prev, buttons[7], Color.White);
+
+            //NEXT SONG [8]
+            spriteBatch.Draw(next, buttons[8], Color.White);
+
+            //SONG TITLE BACKGROUND[9]
+            spriteBatch.Draw(titleBG, buttons[9], Color.White);
+
+            //SONG DURATION BACKGROUND[10]
+            spriteBatch.Draw(durationBG, buttons[10], Color.White);
 
             //Drawing name of song
             spriteBatch.DrawString(soundMusic,
-                songList[song].Name, new Vector2(screenWidth - 400, screenHeight - 850), Color.Black);
+                songList[song].Name, new Vector2(screenWidth - 250, 22), Color.Black);
 
             //Drawing how long the song has played, and duration
             spriteBatch.DrawString(soundMusic,
-                progressbar(time) + " / " + progressbar(songDuration),
-                new Vector2(screenWidth - 400, screenHeight - 800), Color.Black);
+                progressbar(time) + "/\n" + progressbar(songDuration),
+                new Vector2(screenWidth - 50, 15), Color.Black);
 
             //Drawing volume for the media player
             spriteBatch.DrawString(soundMusic,
-                "Volume: " + Math.Round(songVolume) + " / " + "10",
-                new Vector2(screenWidth - 400, screenHeight - 750), Color.Black);
+                "Vol:" + Math.Round(songVolume) + "/" + "10",
+                new Vector2(screenWidth - 130, 50), Color.Black);
 
-            //Bigger buttons, such as play, pause and mute
-            spriteBatch.Draw(play, buttons[0], Color.White);
 
-            spriteBatch.Draw(stop, buttons[1], Color.White);
-
-            if (media == MediaState.Paused)
-            {
-                spriteBatch.Draw(resume, buttons[2], Color.White);
-            }
-            else
-            {
-                spriteBatch.Draw(pause, buttons[2], Color.White);
-            }
-
-            if (isMuted == false)
-            {
-                spriteBatch.Draw(mute, buttons[3], Color.White);
-            }
-
-            else
-            {
-                spriteBatch.Draw(unMute, buttons[3], Color.White);
-            }
-            
-
-            //Smaller buttons, such as prev and next
-            spriteBatch.Draw(prev, buttons[4], Color.White);
-            spriteBatch.Draw(volumeDown, buttons[5], Color.White);
-            spriteBatch.Draw(volumeUp, buttons[6], Color.White);
-            spriteBatch.Draw(next, buttons[7], Color.White);
         }
 
     }
