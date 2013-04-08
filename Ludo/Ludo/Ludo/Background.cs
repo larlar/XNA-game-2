@@ -31,7 +31,7 @@ namespace Ludo
 		    {2,2,2,2,2,2,4,4,4,1,1,1,1,1,1}};
         
         //Create array that will gives the numbers in myArray the right sprites.
-        Texture2D[] textureArray = new Texture2D[27];
+        Texture2D[] textureArray = new Texture2D[26];
 
         // ContentManager that is loadedes textures and position for the objects in to game1
         public void LoadContent(ContentManager content)

@@ -29,6 +29,7 @@ namespace Ludo
         Sound soundMaster;
         Music musicMaster;
         Background myBackground;
+        OneVsThree oneVsThree;
         StartMenu menuButton;
         GameModel currentModel;
 
@@ -46,6 +47,7 @@ namespace Ludo
             musicMaster = new Music();
             soundMaster = new Sound();
             menuButton = new StartMenu();
+            oneVsThree = new OneVsThree();
             gameMode = GameMode.MenuMode;
         }
         /// <summary>
@@ -72,6 +74,7 @@ namespace Ludo
             soundMaster.LoadContent(Content);
             myBackground.LoadContent(Content);
             menuButton.LoadContent(Content);
+            oneVsThree.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
@@ -141,6 +144,7 @@ namespace Ludo
                 case GameMode.PlayingMode:
                     myBackground.Draw(spriteBatch);
                     GraphicsDevice.Clear(Color.LightBlue);
+                    oneVsThree.Draw(spriteBatch);
                     break;
             }
 

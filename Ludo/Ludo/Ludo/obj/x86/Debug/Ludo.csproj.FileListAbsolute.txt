@@ -100,3 +100,19 @@ C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Conten
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Hyrule Field Main Theme.xnb
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Staff Credits.wma
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Hyrule Field Main Theme.wma
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-one.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-brick-one.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-brick-one.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-brick-one.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-brick-four.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-brick-three.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\green-brick-two.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-brick-four.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-brick-three.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\red-brick-two.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-brick-four.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-brick-three.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\yellow-brick-two.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-four.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-three.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-two.xnb

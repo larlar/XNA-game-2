@@ -134,11 +134,10 @@ namespace Ludo
                 (mousePos.Intersects(buttons[0]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released
                 && MediaPlayer.State != MediaState.Playing && MediaPlayer.State != MediaState.Paused && MediaPlayer.State == media))
             {
-                Console.WriteLine("play song");
                 MediaPlayer.Play(songList[song]);
             }
             //allows to resume if paused
-            if (media == MediaState.Paused && (mousePos.Intersects(buttons[0]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
+            if (media == MediaState.Paused && (mousePos.Intersects(buttons[0]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released || media == MediaState.Paused && key.IsKeyDown(Keys.P) && previousKey.IsKeyUp(Keys.P)))
                 MediaPlayer.Resume();                
         }
 
@@ -148,7 +147,6 @@ namespace Ludo
                 (mousePos.Intersects(buttons[1]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released
                 && MediaPlayer.State == MediaState.Playing && MediaPlayer.State == media))
             {
-                Console.WriteLine("pause");
                 MediaPlayer.Pause();
             }
         }
@@ -158,7 +156,6 @@ namespace Ludo
             if (key.IsKeyDown(Keys.S) || 
                 (mousePos.Intersects(buttons[2]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
-                Console.WriteLine("stop song");
                 MediaPlayer.Stop();
             }
         }
@@ -184,7 +181,6 @@ namespace Ludo
             if ((key.IsKeyDown(Keys.M) && previousKey.IsKeyUp(Keys.M) && isMuted == false && muteChanged == isMuted) ||
                 (mousePos.Intersects(buttons[3]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released && isMuted == false && muteChanged == isMuted))
             {
-                Console.WriteLine("mute");
                 songVolumeReserve = songVolume/10f;
                 MediaPlayer.Volume = 0.0f;
                 isMuted = true;
