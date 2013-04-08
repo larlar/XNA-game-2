@@ -13,14 +13,41 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace diceTest
 {
+    // A single 6-sided die
+    class Die
+    {
+        public const int sides = 6;
+        private static Random rand = new Random();
+        private int diceSide;
+
+        // setting defaulted diceSide to number1
+        public Die()
+        {
+            this.diceSide = 1;
+        }
+
+        // get method for the diceSide value
+        public int DiceFace
+        {
+            get { return this.diceSide; }
+        }
+
+        // The basic roll method that rolles the dice to a random side every thime the dice(s) are rolled.
+        public void Roll()
+        {
+            this.diceSide = Die.rand.Next(1, sides + 1);
+        }
+    }
+    
     class Dice : DrawableGameComponent
     {
+        // Creates private variables and arrays
         private Texture2D[] textures;
         private Vector2 firstDiePosition;
         private Die[] dice;
-
         private bool rolledLastUpdate = false;
 
+        // Constructor that is used to create objects of the dice class.
         public Dice(Game game, int numberOfDice, Vector2 firstDiePosition)
             : base(game)
         {
@@ -37,6 +64,7 @@ namespace diceTest
         
         protected override void LoadContent()
         {
+            // for loop that loads all the textures into the LoadContent method
             for (int i = 0; i < this.textures.Length; i++)
             {
                 this.textures[i] = this.Game.Content.Load<Texture2D>("Die_" + (i + 1));
@@ -45,6 +73,7 @@ namespace diceTest
             base.LoadContent();
         }
 
+        // Uppdate method that rolls the Dice when the spesific button is pressed.
         public override void Update(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Space))
@@ -64,6 +93,7 @@ namespace diceTest
             base.Update(gameTime);
         }
 
+        // Dice draw method. The code is written so its posible to draw more than 1 dice if that is choosen in the constructor
         public override void Draw(GameTime gameTime)
         {
             SpriteBatch sb = ((Game1)this.Game).SpriteBatch;
@@ -83,9 +113,8 @@ namespace diceTest
 
             base.Draw(gameTime);
         }
-       
-
-       
+        
+        // Roll method that rolles the dice(s) depending on how many dices are made
         public void Roll()
         {
             foreach (Die die in this.dice)
@@ -94,6 +123,7 @@ namespace diceTest
             }
         }
 
+        // A method that return the total score from the dice or dices.
         public int Total()
         {
             int total = 0;
@@ -106,28 +136,5 @@ namespace diceTest
             return total;
         }
         
-    }
-
-    // A single 6-sided die, defaulted to start at number 1 DiceSide.
-    class Die
-    {
-        public const int sides = 6;
-        private static Random rand = new Random();
-        private int diceSide;
-
-        public Die()
-        {
-            this.diceSide = 1;
-        }
-
-        public int DiceFace
-        {
-            get { return this.diceSide; }
-        }
-
-        public void Roll()
-        {
-            this.diceSide = Die.rand.Next(1, sides + 1);
-        }
     }
 }
