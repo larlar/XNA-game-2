@@ -1,3 +1,10 @@
+Content\Zelda Title Theme.xnb
+Content\Staff Credits.xnb
+Content\Staff Credits.wma
+Content\ClockTown - Day1.xnb
+Content\ClockTown - Day1.wma
+Content\Hyrule Field Main Theme.xnb
+Content\Hyrule Field Main Theme.wma
 Content\Sound_Music.xnb
 Content\blue-block.xnb
 Content\blue-bottomleft-block.xnb
@@ -47,13 +54,6 @@ Content\previous-button.xnb
 Content\volume-field.xnb
 Content\song-title-field.xnb
 Content\duration-field.xnb
-Content\ClockTown - Day1.xnb
-Content\ClockTown - Day1.wma
-Content\Zelda Title Theme.xnb
-Content\Staff Credits.xnb
-Content\Staff Credits.wma
-Content\Hyrule Field Main Theme.xnb
-Content\Hyrule Field Main Theme.wma
 Content\blue-brick-one.xnb
 Content\green-brick-one.xnb
 Content\red-brick-one.xnb

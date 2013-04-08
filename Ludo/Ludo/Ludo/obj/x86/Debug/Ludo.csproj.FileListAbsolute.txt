@@ -1,4 +1,3 @@
-C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Ludo.exe
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Ludo.pdb
@@ -116,3 +115,4 @@ C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Conten
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-four.xnb
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-three.xnb
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\blue-brick-two.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Ludo.csprojResolveAssemblyReference.cache

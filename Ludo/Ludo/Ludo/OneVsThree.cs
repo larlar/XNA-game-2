@@ -13,8 +13,11 @@ namespace Ludo
 {
     class OneVsThree: GameModel
     {
-        Rectangle[] bricks = new Rectangle[16];
         Rectangle[] fields = new Rectangle[92];
+        Rectangle[] yellowPath = new Rectangle[63];
+        Rectangle[] greenPath = new Rectangle[63];
+        Rectangle[] bluePath = new Rectangle[63];
+        Rectangle[] redPath = new Rectangle[63];
 
         Texture2D yellowBrickOne;
         Texture2D yellowBrickTwo;
@@ -93,115 +96,24 @@ namespace Ludo
         {
             fieldMaker();
 
-            //yellow startingfield
-            spriteBatch.Draw(yellowBrickOne, fields[0], Color.White);
-            spriteBatch.Draw(yellowBrickOne, fields[1], Color.White);
-            spriteBatch.Draw(yellowBrickOne, fields[2], Color.White);
-            spriteBatch.Draw(yellowBrickOne, fields[3], Color.White);
-
-            //green startingfield
-            spriteBatch.Draw(greenBrickOne, fields[4], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[5], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[6], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[7], Color.White);
-
-            //blue startingfield
-            spriteBatch.Draw(blueBrickOne, fields[8], Color.White);
-            spriteBatch.Draw(blueBrickOne, fields[9], Color.White);
-            spriteBatch.Draw(blueBrickOne, fields[10], Color.White);
-            spriteBatch.Draw(blueBrickOne, fields[11], Color.White);
-
-            //red startingfield
-            spriteBatch.Draw(redBrickOne, fields[12], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[13], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[14], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[15], Color.White);
+            //starting fields
+            for(int i = 0; i < 4; i++){
+                spriteBatch.Draw(yellowBrickOne, fields[i], Color.White);
+                spriteBatch.Draw(greenBrickOne, fields[i+4], Color.White);
+                spriteBatch.Draw(blueBrickOne, fields[i+8], Color.White);
+                spriteBatch.Draw(redBrickOne, fields[i+12], Color.White);
+            }
 
             //normal path
-            spriteBatch.Draw(greenBrickOne, fields[16], Color.White);
-            spriteBatch.Draw(greenBrickTwo, fields[17], Color.White);
-            spriteBatch.Draw(greenBrickThree, fields[18], Color.White);
-            spriteBatch.Draw(greenBrickFour, fields[19], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[20], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[21], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[22], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[23], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[24], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[25], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[26], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[27], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[28], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[29], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[30], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[31], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[32], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[33], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[34], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[35], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[36], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[37], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[38], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[39], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[40], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[41], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[42], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[43], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[44], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[45], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[46], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[47], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[48], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[49], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[50], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[51], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[52], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[53], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[54], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[55], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[56], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[57], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[58], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[59], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[60], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[61], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[62], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[63], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[64], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[65], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[66], Color.White);
-            spriteBatch.Draw(greenBrickOne, fields[67], Color.White);
+            for (int i = 16; i < 68; i++){
+                spriteBatch.Draw(greenBrickOne, fields[i], Color.White);
+            }
             
-            //yellow branch
-            spriteBatch.Draw(redBrickOne, fields[68], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[69], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[70], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[71], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[72], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[73], Color.White);
-            
-            //green branch
-            spriteBatch.Draw(redBrickOne, fields[74], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[75], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[76], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[77], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[78], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[79], Color.White);
+            //center branches
+            for(int i = 68; i < 92; i++){
+                spriteBatch.Draw(redBrickOne, fields[i], Color.White);
+            }
 
-            //blue branch
-            spriteBatch.Draw(redBrickOne, fields[80], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[81], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[82], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[83], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[84], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[85], Color.White);
-
-            //red branch
-            spriteBatch.Draw(redBrickOne, fields[86], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[87], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[88], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[89], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[90], Color.White);
-            spriteBatch.Draw(redBrickOne, fields[91], Color.White);
         }
 
         public void fieldMaker()
@@ -230,7 +142,7 @@ namespace Ludo
             fields[14] = new Rectangle(472, 562, 45, 45);
             fields[15] = new Rectangle(562, 562, 45, 45);
 
-            //normal path
+            //normal paths
             fields[16] = new Rectangle(270, 585, 45, 45);
             fields[17] = new Rectangle(270, 540, 45, 45);
             fields[18] = new Rectangle(270, 495, 45, 45);
