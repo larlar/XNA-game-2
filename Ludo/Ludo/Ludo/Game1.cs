@@ -32,6 +32,7 @@ namespace Ludo
         OneVsThree oneVsThree;
         StartMenu menuButton;
         GameModel currentModel;
+        Dice myDie;
 
 
         public Game1()
@@ -49,6 +50,7 @@ namespace Ludo
             menuButton = new StartMenu();
             oneVsThree = new OneVsThree();
             gameMode = GameMode.MenuMode;
+            myDie = new Dice(this, 1, new Vector2(800, 10));
         }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -59,9 +61,15 @@ namespace Ludo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            //this.Components.Add(new Dice(this, 1, new Vector2(800, 10)));
             graphics.ApplyChanges();
             base.Initialize();
         }
+   /*         public SpriteBatch SpriteBatch
+        {
+            get { return this.spriteBatch; }
+        }
+*/        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -75,6 +83,7 @@ namespace Ludo
             myBackground.LoadContent(Content);
             menuButton.LoadContent(Content);
             oneVsThree.LoadContent(Content);
+            myDie.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
         /// <summary>
@@ -112,6 +121,7 @@ namespace Ludo
                     currentModel = currentModel.update(); //returns current state to console. used for internal testing
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
+                    myDie.update(gameTime);
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                         gameMode = GameMode.MenuMode;
                     break;       
@@ -145,6 +155,7 @@ namespace Ludo
                     myBackground.Draw(spriteBatch);
                     GraphicsDevice.Clear(Color.LightBlue);
                     oneVsThree.Draw(spriteBatch);
+                    myDie.Draw(spriteBatch);
                     break;
             }
 
