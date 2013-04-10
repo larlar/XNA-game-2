@@ -70,3 +70,9 @@ Content\yellow-brick-two.xnb
 Content\blue-brick-four.xnb
 Content\blue-brick-three.xnb
 Content\blue-brick-two.xnb
+Content\Die_1.xnb
+Content\Die_2.xnb
+Content\Die_3.xnb
+Content\Die_4.xnb
+Content\Die_5.xnb
+Content\Die_6.xnb

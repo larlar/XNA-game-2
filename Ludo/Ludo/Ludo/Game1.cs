@@ -20,7 +20,7 @@ namespace Ludo
         public enum GameMode
         {
             MenuMode,
-            PlayingMode,
+            PlayingMode
         }
 
         GameMode gameMode;
@@ -29,11 +29,10 @@ namespace Ludo
         Sound soundMaster;
         Music musicMaster;
         Background myBackground;
-        OneVsThree oneVsThree;
-        StartMenu menuButton;
-        GameModel currentModel;
-        Dice myDie;
-
+        StartMenu startMenu;
+        GameModel gameModel;
+        Board board;
+        Dice myDie; 
 
         public Game1()
         {
@@ -47,10 +46,10 @@ namespace Ludo
             myBackground = new Background();
             musicMaster = new Music();
             soundMaster = new Sound();
-            menuButton = new StartMenu();
-            oneVsThree = new OneVsThree();
+            startMenu = new StartMenu();
             gameMode = GameMode.MenuMode;
-            myDie = new Dice(this, 1, new Vector2(800, 10));
+            board = new Board();
+            myDie = new Dice(this, 1, new Vector2(800, 10)); 
         }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -61,15 +60,9 @@ namespace Ludo
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            //this.Components.Add(new Dice(this, 1, new Vector2(800, 10)));
             graphics.ApplyChanges();
             base.Initialize();
         }
-   /*         public SpriteBatch SpriteBatch
-        {
-            get { return this.spriteBatch; }
-        }
-*/        
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -81,11 +74,12 @@ namespace Ludo
             musicMaster.LoadContent(Content);
             soundMaster.LoadContent(Content);
             myBackground.LoadContent(Content);
-            menuButton.LoadContent(Content);
-            oneVsThree.LoadContent(Content);
-            myDie.LoadContent(Content);
+            startMenu.LoadContent(Content);
+            board.LoadContent(Content);
+            myDie.LoadContent(Content); 
             // TODO: use this.Content to load your game content here
         }
+
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// all content.
@@ -106,11 +100,12 @@ namespace Ludo
                 case GameMode.MenuMode:
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
-                    GameModel model = menuButton.update();
+                    GameModel model = startMenu.update(spriteBatch);
                     if (model != null)
                     {
-                        currentModel = model;
+                        gameModel = model;
                         gameMode = GameMode.PlayingMode;
+                        board.setModel(gameModel);
 
                         if (model.GetType() == typeof(ExitLudo))
                             Exit();
@@ -118,10 +113,10 @@ namespace Ludo
                     break;
 
                 case GameMode.PlayingMode:
-                    currentModel = currentModel.update(); //returns current state to console. used for internal testing
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
-                    myDie.update(gameTime);
+                    gameModel.update(gameTime);
+                    myDie.update(gameTime); 
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                         gameMode = GameMode.MenuMode;
                     break;       
@@ -148,14 +143,14 @@ namespace Ludo
             switch(gameMode){
                 case GameMode.MenuMode:
                     GraphicsDevice.Clear(Color.Coral);
-                    menuButton.Draw(spriteBatch, graphics.GraphicsDevice);
+                    startMenu.Draw(spriteBatch, graphics.GraphicsDevice);
                     break;
 
                 case GameMode.PlayingMode:
                     myBackground.Draw(spriteBatch);
+                    board.Draw(spriteBatch);
                     GraphicsDevice.Clear(Color.LightBlue);
-                    oneVsThree.Draw(spriteBatch);
-                    myDie.Draw(spriteBatch);
+                    myDie.Draw(spriteBatch); 
                     break;
             }
 

@@ -309,8 +309,6 @@ namespace Ludo
             spriteBatch.DrawString(soundMusic,
                 "Vol:" + Math.Round(songVolume) + "/" + "10",
                 new Vector2(screenWidth - 130, 50), Color.Black);
-
-
         }
 
     }

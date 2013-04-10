@@ -7,7 +7,7 @@ namespace Ludo
 {
     class ExitLudo : GameModel
     {
-        public override GameModel update()
+        public GameModel init()
         {
             return null;
         }

@@ -56,25 +56,25 @@ namespace Ludo
          * Return correct instance of Game Model, based on which menu-item you select. 
          * Game Model instance = 1v4, 2v2 etc. 
          */
-        public GameModel update()
+        public GameModel update(SpriteBatch spriteBatch)
         {
             mouse = Mouse.GetState();
             mousePos.X = mouse.X;
             mousePos.Y = mouse.Y;
 
             if (Keyboard.GetState().IsKeyDown(Keys.D1) || mousePos.Intersects(rectArray[0]) && mouse.LeftButton == ButtonState.Pressed)
-                return new OneVsThree();
+                return new GameModel();
             else if (Keyboard.GetState().IsKeyDown(Keys.D2) || mousePos.Intersects(rectArray[1]) && mouse.LeftButton == ButtonState.Pressed)
-                return new TwoVsTwo();
+                return new GameModel();
             else if (Keyboard.GetState().IsKeyDown(Keys.D3) || mousePos.Intersects(rectArray[2]) && mouse.LeftButton == ButtonState.Pressed)
-                return new ThreeVsOne();
+                return new GameModel();
             else if (Keyboard.GetState().IsKeyDown(Keys.D4) || mousePos.Intersects(rectArray[3]) && mouse.LeftButton == ButtonState.Pressed)
-                return new FourVsZero();
+                return new GameModel();
             else if (Keyboard.GetState().IsKeyDown(Keys.D5) || mousePos.Intersects(rectArray[4]) && mouse.LeftButton == ButtonState.Pressed)
-                return new ZeroVsFour();
+                return new GameModel();
             else if (Keyboard.GetState().IsKeyDown(Keys.LeftControl) && Keyboard.GetState().IsKeyDown(Keys.Q) || mousePos.Intersects(rectArray[5]) && mouse.LeftButton == ButtonState.Pressed)
                 return new ExitLudo();
-            else 
+            else
                 return null;
         }
     }
