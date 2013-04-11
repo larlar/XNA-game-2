@@ -17,6 +17,7 @@ namespace Ludo
 
         SoundEffect sound;
         SoundEffectInstance soundInstance;
+        SoundState sfx;
         float soundVolume;
 
         KeyboardState keyboard;
@@ -44,56 +45,61 @@ namespace Ludo
                 soundInstance.Dispose();
             }
 
+            //Gets the state of the soundEffect, to prevent the soundInstance, to change state more than once a frame.
+            sfx = soundInstance.State;
+
+            //Checking when key is pressed and released, in order too prevent multiple clicks in one press.
             previousKey = keyboard;
             keyboard = Keyboard.GetState();
 
-            playSound(keyboard, soundInstance);
-            stopSound(keyboard, soundInstance);
-            pauseSound(keyboard, soundInstance);
-            adjustVolume(previousKey, keyboard, soundInstance);
+            playSound(soundInstance);
+            stopSound(soundInstance);
+            pauseSound(soundInstance);
+            adjustVolume(soundInstance);
 
+            //Used to display sfx volume
             soundVolume = soundInstance.Volume * 10;
         }
 
-        public void playSound(KeyboardState key, SoundEffectInstance sound)
+        public void playSound(SoundEffectInstance soundInstance)
         {
-            if (key.IsKeyDown(Keys.A))
+            if (keyboard.IsKeyDown(Keys.A) && previousKey.IsKeyUp(Keys.A) && soundInstance.State != SoundState.Playing && soundInstance.State == sfx)
             {
-                sound.Play();
+                soundInstance.Play();
             }
         }
 
-        public void stopSound(KeyboardState key, SoundEffectInstance sound)
+        public void stopSound(SoundEffectInstance soundInstance)
         {
-            if (key.IsKeyDown(Keys.S))
+            if (keyboard.IsKeyDown(Keys.D) && previousKey.IsKeyUp(Keys.D) && soundInstance.State == SoundState.Playing)
             {
-                sound.Stop();
+                soundInstance.Stop();
             }
         }
 
-        public void pauseSound(KeyboardState key, SoundEffectInstance sound)
+        public void pauseSound(SoundEffectInstance soundInstance)
         {
-            if (key.IsKeyDown(Keys.D) && sound.State == SoundState.Playing)
+            if (keyboard.IsKeyDown(Keys.A) && previousKey.IsKeyUp(Keys.A) && soundInstance.State == SoundState.Playing && soundInstance.State == sfx)
             {
-                sound.Pause();
+                soundInstance.Pause();
             }
         }
 
-        public void adjustVolume(KeyboardState previousKey, KeyboardState key, SoundEffectInstance sound)
+        public void adjustVolume(SoundEffectInstance soundInstance)
         {
-            if (key.IsKeyDown(Keys.F) && previousKey.IsKeyUp(Keys.F))
+            if (keyboard.IsKeyDown(Keys.F) && previousKey.IsKeyUp(Keys.F))
             {
-                if (sound.Volume > 0.1f)
+                if (soundInstance.Volume > 0.1f)
                 {
-                    sound.Volume -= 0.1f;
+                    soundInstance.Volume -= 0.1f;
                 }
             }
 
-            if (key.IsKeyDown(Keys.G) && previousKey.IsKeyUp(Keys.G))
+            if (keyboard.IsKeyDown(Keys.G) && previousKey.IsKeyUp(Keys.G))
             {
-                if (sound.Volume < 1)
+                if (soundInstance.Volume < 1)
                 {
-                    sound.Volume += 0.1f;
+                    soundInstance.Volume += 0.1f;
                 }
             }
         }
