@@ -74,6 +74,7 @@ namespace Ludo
                 for (int i = 0; i < set.Length; i++)
                 {
                     Rectangle rect = BoardHelper.getFields()[set[i].getBoardIndex()].getRectangle();
+                    Rectangle goal = BoardHelper.getFields()[62].getRectangle();
                     if (mousePos.Intersects(rect) && hasRolledDice == true)
                     {
                         set[i].move(dice.getValue(), set);
@@ -84,7 +85,7 @@ namespace Ludo
                         hasRolledDice = false;
                     }
 
-                    if (mousePos.Intersects(rect) && currentPlayer.getThrowsLeft() == 0)
+                    if (mousePos.Intersects(rect) && currentPlayer.getThrowsLeft() == 0 && !mousePos.Intersects(goal))
                     {
                         if (currentPlayer.isAllPiecesInBaseOrGoal())
                         {
