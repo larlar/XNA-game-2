@@ -17,24 +17,26 @@ namespace Ludo
         
         PieceSet[] pieces;
         Color color;
+        Type type;
 
         public enum Color
         {
             Yellow, Green, Blue, Red
         }
-        public enum type
+        public enum Type
         {
             human, ai
         }
 
-        public Player(Color color, type type)
+        public Player(Color color, Type type)
         {
             int[] path = new int[63]; 
             this.color = color;
+            this.type = type;
             switch (color)
             {
                 case Color.Yellow:
-                    path = (BoardHelper.getYellowPath());  
+                    path = BoardHelper.getYellowPath();  
                     break;
                 case Color.Green:
                     path = BoardHelper.getGreenPath();
@@ -57,6 +59,11 @@ namespace Ludo
         public PieceSet[] getPieceLoactions()
         {
             return pieces;
+        }
+
+        public bool isAI()
+        {
+            return type == Type.ai;
         }
 
 

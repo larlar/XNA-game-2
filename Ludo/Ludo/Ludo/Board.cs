@@ -20,6 +20,9 @@ namespace Ludo
         Texture2D[] greenTextures = new Texture2D[4];
         Texture2D[] blueTextures = new Texture2D[4];
         Texture2D[] redTextures = new Texture2D[4];
+        Texture2D[] diceTextures = new Texture2D[6];
+        SpriteFont sideMenuFont;
+
         public Board()
         {
             fields = BoardHelper.getFields();
@@ -29,21 +32,28 @@ namespace Ludo
         {
             this.model = model;
         }
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
+            int screenWidth = graphicsDevice.Viewport.Width;
+            int screenHeight = graphicsDevice.Viewport.Height;
+
             drawPieces(model.getYelloPositions(), yellowTextures, spriteBatch);
             drawPieces(model.getGreenPositions(), greenTextures, spriteBatch);
             drawPieces(model.getBluePositions(), blueTextures, spriteBatch);
             drawPieces(model.getRedPositions(), redTextures, spriteBatch);
-            
+
+            //sideboard
+            spriteBatch.Draw(diceTextures[model.getDice().getValue() - 1], new Rectangle(screenWidth - 170, 120, 80, 80), Color.White); //dice
+            spriteBatch.DrawString(sideMenuFont, "Current turn: ", new Vector2(screenWidth-250, 250), Color.Black); //current turn: text
+            drawCurrentPlayer(spriteBatch, graphicsDevice); // curent turn icon
         }
 
         private void drawPieces(PieceSet[] set, Texture2D[] textures, SpriteBatch spriteBatch) 
         {
             for (int i = 0; i < set.Length; i++)
             {
-                if (set[i].getPieceCount() >0)
-                    fields[set[i].getBoardIndex()].draw(spriteBatch, textures[set[i].getPieceCount()-1]); 
+                if (set[i].getNumPieces() >0)
+                    fields[set[i].getBoardIndex()].draw(spriteBatch, textures[set[i].getNumPieces()-1]); 
             }
         }
 
@@ -66,6 +76,29 @@ namespace Ludo
             redTextures[1] = Content.Load<Texture2D>("red-brick-two");
             redTextures[2] = Content.Load<Texture2D>("red-brick-three");
             redTextures[3] = Content.Load<Texture2D>("red-brick-four");
+            sideMenuFont = Content.Load<SpriteFont>("sideMenuFont");
+            diceTextures[0] = Content.Load<Texture2D>("Die_1");
+            diceTextures[1] = Content.Load<Texture2D>("Die_2");
+            diceTextures[2] = Content.Load<Texture2D>("Die_3");
+            diceTextures[3] = Content.Load<Texture2D>("Die_4");
+            diceTextures[4] = Content.Load<Texture2D>("Die_5");
+            diceTextures[5] = Content.Load<Texture2D>("Die_6");
+        }
+
+        private void drawCurrentPlayer(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
+        {
+            int screenWidth = graphicsDevice.Viewport.Width;
+            int screenHeight = graphicsDevice.Viewport.Height;
+            Rectangle rect = new Rectangle(screenWidth - 80, 238, 45, 45);
+
+            if (model.getCurrentPlayer().getColor() == Player.Color.Yellow)
+                spriteBatch.Draw(yellowTextures[0], rect, Color.White);
+            else if (model.getCurrentPlayer().getColor() == Player.Color.Green)
+                spriteBatch.Draw(greenTextures[0], rect, Color.White);
+            else if (model.getCurrentPlayer().getColor() == Player.Color.Blue)
+                spriteBatch.Draw(blueTextures[0], rect, Color.White);
+            else if (model.getCurrentPlayer().getColor() == Player.Color.Red)
+                spriteBatch.Draw(redTextures[0], rect, Color.White);
         }
 
 

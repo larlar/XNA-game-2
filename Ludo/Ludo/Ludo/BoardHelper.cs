@@ -155,51 +155,79 @@ namespace Ludo
             greenPath[1] = 5;
             greenPath[2] = 6;
             greenPath[3] = 7;
-            for (int i = 0; i < 52; i++)
-            {
-                greenPath[i + 4] = i + 16;
-            }
-            greenPath[56] = 16;
-            greenPath[57] = 68;
-            greenPath[58] = 69;
-            greenPath[59] = 70;
-            greenPath[60] = 71;
-            greenPath[61] = 72;
-            greenPath[62] = 73;
 
-            // red path
-            redPath[0] = 12;
-            redPath[1] = 13;
-            redPath[2] = 14;
-            redPath[3] = 15;
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i < 39; i++)
             {
-                redPath[i + 4] = i + 16;
+                greenPath[i + 4] = i + 29;
             }
-            redPath[56] = 16;
-            redPath[57] = 68;
-            redPath[58] = 69;
-            redPath[59] = 70;
-            redPath[60] = 71;
-            redPath[61] = 72;
-            redPath[62] = 73;
+            greenPath[43] = 16;
+            greenPath[44] = 17;
+            greenPath[45] = 18;
+            greenPath[46] = 19;
+            greenPath[47] = 20;
+            greenPath[48] = 21;
+            greenPath[49] = 22;
+            greenPath[50] = 23;
+            greenPath[51] = 24;
+            greenPath[52] = 25;
+            greenPath[53] = 26;
+            greenPath[54] = 27;
+            greenPath[55] = 28;
+            greenPath[56] = 29;
+
+            greenPath[57] = 74;
+            greenPath[58] = 75;
+            greenPath[59] = 76;
+            greenPath[60] = 77;
+            greenPath[61] = 78;
+            greenPath[62] = 79;
 
             // blue path
             bluePath[0] = 8;
             bluePath[1] = 9;
             bluePath[2] = 10;
             bluePath[3] = 11;
-            for (int i = 0; i < 52; i++)
+
+            for (int i = 0; i < 26; i++)
             {
-                bluePath[i + 4] = i + 16;
+                bluePath[i + 4] = i + 42;
             }
-            bluePath[56] = 16;
-            bluePath[57] = 68;
-            bluePath[58] = 69;
-            bluePath[59] = 70;
-            bluePath[60] = 71;
-            bluePath[61] = 72;
-            bluePath[62] = 73;
+
+            for (int i = 0; i < 27; i++)
+            {
+                bluePath[i + 30] = i + 16;
+            }
+            bluePath[56] = 42;
+            bluePath[57] = 80;
+            bluePath[58] = 81;
+            bluePath[59] = 82;
+            bluePath[60] = 83;
+            bluePath[61] = 84;
+            bluePath[62] = 85;
+
+            // red path
+            redPath[0] = 12;
+            redPath[1] = 13;
+            redPath[2] = 14;
+            redPath[3] = 15;
+            for (int i = 0; i < 13; i++)
+            {
+                redPath[i + 4] = i + 55;
+            }
+
+            for (int i = 0; i < 39; i++)
+            {
+                redPath[i + 17] = i+16;
+            }
+            redPath[56] = 55;
+            redPath[57] = 86;
+            redPath[58] = 87;
+            redPath[59] = 88;
+            redPath[60] = 89;
+            redPath[61] = 90;
+            redPath[62] = 91;
+
+
         }
 
         public static Field[] getFields()

@@ -206,3 +206,4 @@ C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Conten
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Die_5.xnb
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Die_6.xnb
 C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\obj\x86\Debug\Ludo.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\sideMenuFont.xnb

@@ -24,7 +24,6 @@ namespace Ludo
         public void draw(SpriteBatch spriteBatch, Texture2D texture)
         {
             spriteBatch.Draw(texture, rect, Color.White);
-            //Console.WriteLine("Null!");
         }
     }
 }

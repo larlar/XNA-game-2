@@ -112,7 +112,6 @@
   <ItemGroup>
     <Compile Include="Background.cs" />
     <Compile Include="BoardHelper.cs" />
-    <Compile Include="Dice.cs" />
     <Compile Include="ExitLudo.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="GameModel.cs" />

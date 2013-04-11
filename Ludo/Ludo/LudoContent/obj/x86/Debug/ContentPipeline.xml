@@ -679,6 +679,15 @@
       <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Die_6.xnb</Output>
       <Time>2008-04-08T22:41:24+02:00</Time>
     </Item>
+    <Item>
+      <Source>sideMenuFont.spritefont</Source>
+      <Name>sideMenuFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\sideMenuFont.xnb</Output>
+      <Time>2013-04-11T00:28:40.7550856+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

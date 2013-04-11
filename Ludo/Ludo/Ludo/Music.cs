@@ -172,12 +172,20 @@ namespace Ludo
                 (mousePos.Intersects(buttons[5]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released))
             {
                 MediaPlayer.Volume += 0.1f;
-                isMuted = false;
+                if (isMuted)
+                {
+                    MediaPlayer.Volume = songVolumeReserve + 0.1f;
+                    isMuted = false;
+                }
+                
             }
         }
 
         public void muteSong()
         {
+            if (MediaPlayer.Volume == 0.0f)
+                isMuted = true;
+
             if ((key.IsKeyDown(Keys.M) && previousKey.IsKeyUp(Keys.M) && isMuted == false && muteChanged == isMuted) ||
                 (mousePos.Intersects(buttons[3]) && mouse.LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released && isMuted == false && muteChanged == isMuted))
             {

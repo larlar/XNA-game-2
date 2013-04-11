@@ -32,14 +32,13 @@ namespace Ludo
         StartMenu startMenu;
         GameModel gameModel;
         Board board;
-        Dice myDie; 
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.IsFullScreen = false;
-            graphics.PreferredBackBufferWidth = 1600;
-            graphics.PreferredBackBufferHeight = 900;
+            graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferHeight = 675;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
             MediaPlayer.IsRepeating = true;
@@ -49,7 +48,6 @@ namespace Ludo
             startMenu = new StartMenu();
             gameMode = GameMode.MenuMode;
             board = new Board();
-            myDie = new Dice(this, 1, new Vector2(800, 10)); 
         }
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -75,8 +73,7 @@ namespace Ludo
             soundMaster.LoadContent(Content);
             myBackground.LoadContent(Content);
             startMenu.LoadContent(Content);
-            board.LoadContent(Content);
-            myDie.LoadContent(Content); 
+            board.LoadContent(Content); 
             // TODO: use this.Content to load your game content here
         }
 
@@ -116,7 +113,6 @@ namespace Ludo
                     soundMaster.update(gameTime);
                     musicMaster.update(gameTime);
                     gameModel.update(gameTime);
-                    myDie.update(gameTime); 
                     if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                         gameMode = GameMode.MenuMode;
                     break;       
@@ -147,10 +143,9 @@ namespace Ludo
                     break;
 
                 case GameMode.PlayingMode:
-                    myBackground.Draw(spriteBatch);
-                    board.Draw(spriteBatch);
                     GraphicsDevice.Clear(Color.LightBlue);
-                    myDie.Draw(spriteBatch); 
+                    myBackground.Draw(spriteBatch);
+                    board.Draw(spriteBatch, graphics.GraphicsDevice);
                     break;
             }
 

@@ -7,21 +7,24 @@ namespace Ludo
         private int[] path;
         private int numPieces=1;
         private int pathPosition;
+        private int unique;
+        private int goalPosition = 62;
 
-        public PieceSet(int[] path,int pathPosition)
+        public PieceSet(int[] path, int pathPosition)
         {
             this.path = path;
             this.pathPosition = pathPosition;
+            this.unique = pathPosition;
         }
 
-        public int getPieceCount()
+        public int getNumPieces()
         {
             return numPieces;
         }
 
         public void merge(PieceSet pieceSet)
         {
-            this.numPieces += pieceSet.getPieceCount();
+            this.numPieces += pieceSet.getNumPieces();
             pieceSet.setEmpty(); 
         }
 
@@ -34,14 +37,42 @@ namespace Ludo
             this.pathPosition=position;
         }
 
-        public void move(int delta)
+        public void move(int delta, PieceSet[] set)
         {
-            if (pathPosition < 4)
-                pathPosition = 4;
-            else if(pathPosition <62)
-                this.pathPosition += delta;
+            int newPos;
+            if (pathPosition == goalPosition)
+                return;
+            else if (pathPosition < 4)
+            {
+                if (delta == 6)
+                    newPos = 4;
+                else
+                    return;
+            }
+            else if (pathPosition + delta > goalPosition)
+                newPos = 2 * goalPosition - pathPosition - delta;
+            else
+                newPos = pathPosition + delta;
+           
+            // check if merge pieces
+            bool merged=false;
+            for (int i = 0; i < set.Length; i++)
+            {
+                PieceSet s = set[i];
+                if (!(s.getNumPieces() == 0 || s.getUniqueValue() == unique))
+                {  // no empty and not itself
+                    if (newPos == s.getPosition())
+                    {
+                        s.merge(this);
+                        merged = true;
+                        i = 4;
+                    }
+                }
+            }
+            if (!merged)
+                pathPosition = newPos;
         }
-
+ 
         public void makeSingle()
         {
             numPieces = 1;
@@ -50,10 +81,14 @@ namespace Ludo
         {
             this.numPieces = 0;
         }
-
-        public int getBoardIndex() 
+ 
+        public int getBoardIndex()
         {
             return path[pathPosition];
+        }
+        public int getUniqueValue()
+        {
+            return unique;
         }
     }
 }
