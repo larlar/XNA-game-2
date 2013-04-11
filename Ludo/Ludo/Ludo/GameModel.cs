@@ -17,62 +17,90 @@ namespace Ludo
     {
         Player yellowPlayer, redPlayer, greenPlayer, bluePlayer;
         Player currentPlayer;
-        MouseState previousMouse;
+
         Rectangle mousePos;
         Dice dice;
         KeyboardState key;
         KeyboardState previousKey;
 
+        MouseState previousMouse;
+        MouseState mstate;
+        Random rand = new Random();
+        bool hasRolledDice;
+
         public GameModel()
         {
             yellowPlayer = new Player(Player.Color.Yellow, Player.Type.human);
-            redPlayer = new Player(Player.Color.Red, Player.Type.ai);
-            greenPlayer = new Player(Player.Color.Green, Player.Type.ai);
-            bluePlayer = new Player(Player.Color.Blue, Player.Type.ai);
-            currentPlayer = yellowPlayer;
+            redPlayer = new Player(Player.Color.Red, Player.Type.human);
+            greenPlayer = new Player(Player.Color.Green, Player.Type.human);
+            bluePlayer = new Player(Player.Color.Blue, Player.Type.human);
+            currentPlayer = redPlayer;
             mousePos = new Rectangle(0, 0, 1, 1);
             previousMouse = Mouse.GetState();
             dice = new Dice();
         }
         public void update(GameTime gameTime)
         {
+
             if (currentPlayer.isAI())
             {
-                Console.WriteLine("This is an AI!");
-                setNextPlayer();
+                bestAiMove();
                 return;
             }
-
             previousKey = key;
-            key = Keyboard.GetState();
-            if (key.IsKeyDown(Keys.Space) && previousKey.IsKeyUp(Keys.Space))
+            mstate = Mouse.GetState();
+            key = Keyboard.GetState();                 
+
+            if (key.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
             {
                 dice.roll();
+                hasRolledDice = true;
                 return;
             }
 
-            MouseState mstate = Mouse.GetState();
-            if (previousMouse.LeftButton == ButtonState.Released
-                        && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (key.IsKeyUp(Keys.Space) && previousKey.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
             {
+                currentPlayer.minusThrows();
+                Console.WriteLine(currentPlayer.getThrowsLeft());
+            }
+
+            
+            if (previousMouse.LeftButton == ButtonState.Released && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+
                 mousePos.X = mstate.X;
                 mousePos.Y = mstate.Y;
-
                 PieceSet[] set = currentPlayer.getPieceLoactions();
                 for (int i = 0; i < set.Length; i++)
                 {
                     Rectangle rect = BoardHelper.getFields()[set[i].getBoardIndex()].getRectangle();
-                    if (mousePos.Intersects(rect))
+                    if (mousePos.Intersects(rect) && hasRolledDice == true)
                     {
                         set[i].move(dice.getValue(), set);
-                        dice.roll();
-                        Console.Out.WriteLine(dice.getValue());
-                        setNextPlayer();
+                        if (dice.getValue() == 6)
+                        {
+                            currentPlayer.setThrows(1);
+                        }
+                        hasRolledDice = false;
                     }
 
+                    if (mousePos.Intersects(rect) && currentPlayer.getThrowsLeft() == 0)
+                    {
+                        if (currentPlayer.isAllPiecesInBaseOrGoal())
+                        {
+                            currentPlayer.setThrows(3);
+                        }
+
+                        else
+                        {
+                            currentPlayer.setThrows(1);
+                        }
+
+                        hasRolledDice = false;
+
+                        setNextPlayer();
+                    }
                     previousMouse = mstate;
-
-
                 }
             }
             else
@@ -80,18 +108,8 @@ namespace Ludo
                 if (mstate.LeftButton == ButtonState.Released)
                     previousMouse = mstate;
             }
-
-            /*
-             * currentPlayer.move();
-             * dice.isNewRoll();
-             * 
-             */
         }
 
-        public void movePiece(PieceSet set, int diceValue)
-        {
-
-        }
 
         public PieceSet[] getYelloPositions()
         {
@@ -129,9 +147,18 @@ namespace Ludo
             else if (currentPlayer.getColor() == Player.Color.Red)
                 currentPlayer = yellowPlayer;
         }
+
         public Dice getDice()
         {
             return dice;
+        }
+
+        public void bestAiMove()
+        {
+            PieceSet[] set = currentPlayer.getPieceLoactions();
+            dice.roll();
+            set[rand.Next(0, 4)].move(dice.getValue(), set);
+            setNextPlayer();
         }
     }
 
