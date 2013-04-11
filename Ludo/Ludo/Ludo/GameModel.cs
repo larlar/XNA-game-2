@@ -27,6 +27,7 @@ namespace Ludo
         MouseState mstate;
         Random rand = new Random();
         bool hasRolledDice;
+        int lastBoardIndex = -1;
 
         public GameModel()
         {
@@ -40,28 +41,35 @@ namespace Ludo
             dice = new Dice();
         }
         public void update(GameTime gameTime)
+
         {
-            Console.WriteLine(currentPlayer.isAllPiecesInBaseOrGoal());
+            //checks if a player has won. if a player has won, his turn will be skipped all the time.
+            if (currentPlayer.hasPlayerWon())
+            {
+                setNextPlayer();
+            }
+
             if (currentPlayer.isAI())
             {
                 bestAiMove();
                 return;
             }
+
             previousKey = key;
             mstate = Mouse.GetState();
             key = Keyboard.GetState();                 
 
-            if (key.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
+            if (key.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0) //roll animation
             {
                 dice.roll();
                 hasRolledDice = true;
-                return;
+                //return;
             }
 
             if (key.IsKeyUp(Keys.Space) && previousKey.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
             {
                 currentPlayer.minusThrows();
-                Console.WriteLine(currentPlayer.getThrowsLeft());
+                //Console.WriteLine(currentPlayer.getThrowsLeft());
             }
 
             
@@ -70,35 +78,32 @@ namespace Ludo
 
                 mousePos.X = mstate.X;
                 mousePos.Y = mstate.Y;
-                PieceSet[] set = currentPlayer.getPieceLoactions();
-                for (int i = 0; i < set.Length; i++)
+                PieceSet[] pieceSet = currentPlayer.getPieceLoactions();
+                Rectangle goal = BoardHelper.getFields()[62].getRectangle();
+
+                for (int i = 0; i < pieceSet.Length; i++)
                 {
-                    Rectangle rect = BoardHelper.getFields()[set[i].getBoardIndex()].getRectangle();
-                    Rectangle goal = BoardHelper.getFields()[62].getRectangle();
+                    Rectangle rect = BoardHelper.getFields()[pieceSet[i].getBoardIndex()].getRectangle();
                     if (mousePos.Intersects(rect) && hasRolledDice == true)
                     {
-                        set[i].move(dice.getValue(), set);
-                        if (dice.getValue() == 6)
+                        Console.WriteLine("loop 1");
+                        lastBoardIndex = pieceSet[i].move(dice.getValue(), pieceSet);
+                        checkPieceInterception();
+
+                        if (dice.getValue() == 6) //one extra throw
                         {
                             currentPlayer.setThrows(1);
                         }
+
                         hasRolledDice = false;
                     }
 
+                    
                     if (mousePos.Intersects(rect) && currentPlayer.getThrowsLeft() == 0 && !mousePos.Intersects(goal))
                     {
-                        if (currentPlayer.isAllPiecesInBaseOrGoal())
-                        {
-                            currentPlayer.setThrows(3);
-                        }
-
-                        else
-                        {
-                            currentPlayer.setThrows(1);
-                        }
-
+                        Console.WriteLine("loop 2");
+                        currentPlayer.resetAmountOfThrows();
                         hasRolledDice = false;
-
                         setNextPlayer();
                     }
                     previousMouse = mstate;
@@ -111,6 +116,19 @@ namespace Ludo
             }
         }
 
+        private void checkPieceInterception()
+        {
+            if (lastBoardIndex == -1)
+                return; // no move to check
+            if (currentPlayer != yellowPlayer)
+                yellowPlayer.checkAndHitBack(lastBoardIndex);
+            if (currentPlayer != greenPlayer)
+                greenPlayer.checkAndHitBack(lastBoardIndex);
+            if (currentPlayer != bluePlayer)
+                bluePlayer.checkAndHitBack(lastBoardIndex);
+            if (currentPlayer != redPlayer)
+                redPlayer.checkAndHitBack(lastBoardIndex);
+        }
 
         public PieceSet[] getYelloPositions()
         {
@@ -135,6 +153,11 @@ namespace Ludo
         public Player getCurrentPlayer()
         {
             return currentPlayer;
+        }
+
+        public Player getRedPlayer()
+        {
+            return redPlayer;
         }
 
         private void setNextPlayer()

@@ -45,7 +45,8 @@ namespace Ludo
             //sideboard
             spriteBatch.Draw(diceTextures[model.getDice().getValue() - 1], new Rectangle(screenWidth - 170, 120, 80, 80), Color.White); //dice
             spriteBatch.DrawString(sideMenuFont, "Current turn: ", new Vector2(screenWidth-250, 250), Color.Black); //current turn: text
-            drawCurrentPlayer(spriteBatch, graphicsDevice); // curent turn icon
+            drawCurrentPlayerInSideboard(spriteBatch, graphicsDevice); // curent turn icon
+            //drawWinner(spriteBatch, graphicsDevice);
         }
 
         private void drawPieces(PieceSet[] set, Texture2D[] textures, SpriteBatch spriteBatch) 
@@ -85,7 +86,7 @@ namespace Ludo
             diceTextures[5] = Content.Load<Texture2D>("Die_6");
         }
 
-        private void drawCurrentPlayer(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
+        private void drawCurrentPlayerInSideboard(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice)
         {
             int screenWidth = graphicsDevice.Viewport.Width;
             int screenHeight = graphicsDevice.Viewport.Height;
@@ -99,6 +100,16 @@ namespace Ludo
                 spriteBatch.Draw(blueTextures[0], rect, Color.White);
             else if (model.getCurrentPlayer().getColor() == Player.Color.Red)
                 spriteBatch.Draw(redTextures[0], rect, Color.White);
+        }
+
+        private void drawWinner(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice) 
+        {
+            int screenWidth = graphicsDevice.Viewport.Width;
+            int screenHeight = graphicsDevice.Viewport.Height;
+
+            if(model.getCurrentPlayer().hasPlayerWon())
+                spriteBatch.Draw(redTextures[0], new Rectangle(screenWidth - 80, 290, 45, 45), Color.White);
+
         }
 
 

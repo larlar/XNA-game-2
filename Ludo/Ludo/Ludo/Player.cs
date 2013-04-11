@@ -56,6 +56,20 @@ namespace Ludo
             pieces[3] = new PieceSet(path, 3);
         }
 
+        public void checkAndHitBack(int boardIndex)
+        {
+            foreach (PieceSet s in pieces)
+            {
+                int i = s.getBoardIndex();
+                //Console.Out.WriteLine("Player " + color.ToString() + " " + i.ToString());
+                if (i == boardIndex)
+                {
+                    s.hitBackToStart(pieces);
+                    return;
+                }
+            }
+        }
+
         public PieceSet[] getPieceLoactions()
         {
             return pieces;
@@ -77,6 +91,27 @@ namespace Ludo
                 return false;
         }
 
+        public bool hasPlayerWon() 
+        {
+            int sum = 0;
+            for(int i = 0; i < 4; i++){
+                if (pieces[i].getPosition() == 62)
+                    sum += pieces[i].getNumPieces();
+            }
+            if (sum == 4)
+                return true;
+            else
+                return false;
+        }
+
+        public bool canMove(int diceValue)
+        {
+            if (!isAllPiecesInBaseOrGoal() || diceValue == 6)
+                return true;
+            else
+                return false;
+        }
+
         public int getThrowsLeft()
         {
             return numberOfThrows;
@@ -90,6 +125,14 @@ namespace Ludo
         public void setThrows(int turn)
         {
             numberOfThrows = turn;
+        }
+
+        public void resetAmountOfThrows()
+        {
+            if (isAllPiecesInBaseOrGoal())
+                setThrows(3);
+            else
+                setThrows(1);
         }
 
 
