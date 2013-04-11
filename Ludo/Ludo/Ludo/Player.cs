@@ -69,9 +69,9 @@ namespace Ludo
         public bool isAllPiecesInBaseOrGoal() 
         {
             if ((pieces[0].getPosition() < 4 || pieces[0].getPosition() == 62) && 
-               (pieces[1].getPosition() < 4) || (pieces[1].getPosition() == 62) && 
-               (pieces[2].getPosition() < 4) || (pieces[2].getPosition() == 62) && 
-               (pieces[3].getPosition() < 4) || (pieces[3].getPosition() == 62))
+               (pieces[1].getPosition() < 4 || pieces[1].getPosition() == 62) && 
+               (pieces[2].getPosition() < 4 || pieces[2].getPosition() == 62) && 
+               (pieces[3].getPosition() < 4 || pieces[3].getPosition() == 62))
                 return true;
             else
                 return false;

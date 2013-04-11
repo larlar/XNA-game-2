@@ -41,7 +41,7 @@ namespace Ludo
         }
         public void update(GameTime gameTime)
         {
-
+            Console.WriteLine(currentPlayer.isAllPiecesInBaseOrGoal());
             if (currentPlayer.isAI())
             {
                 bestAiMove();
