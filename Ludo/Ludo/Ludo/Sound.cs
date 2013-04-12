@@ -32,8 +32,8 @@ namespace Ludo
 
         public void LoadContent(ContentManager content)
         {
-            soundInstance = sound.CreateInstance();
             sound = content.Load<SoundEffect>("Zelda Title Theme");
+            soundInstance = sound.CreateInstance();
             soundMusic = content.Load<SpriteFont>("Sound_Music");
         }
 
