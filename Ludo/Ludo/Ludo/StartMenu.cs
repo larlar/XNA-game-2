@@ -40,10 +40,10 @@ namespace Ludo
             int screenWidth = graphicsDevice.Viewport.Width;
             int screenHeight = graphicsDevice.Viewport.Height;
 
-            //Draws background
+            //Draws background picture
             spriteBatch.Draw(menuBackground, new Rectangle(0, 0, screenWidth, screenHeight), colour);
 
-            //Draws Menu Background
+            //Draws menu-buttons
             for (int i = 0; i < buttonArray.Length; i++)
             {
                 rectArray[i] = new Rectangle(screenWidth / 2 - 98, (screenHeight / 3 + (heightSpacing * i)) + 70, 197, 34); ; ;
@@ -51,11 +51,7 @@ namespace Ludo
             }   
         }
 
-
-        /*
-         * Return correct instance of Game Model, based on which menu-item you select. 
-         * Game Model instance = 1v4, 2v2 etc. 
-         */
+        // Return correct instance of Game Model, based on which menu-item you select.  
         public GameModel update(SpriteBatch spriteBatch)
         {
             mouse = Mouse.GetState();

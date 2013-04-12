@@ -58,6 +58,7 @@ namespace Ludo
             pieces[3] = new PieceSet(path, 3);
         }
 
+        //knocks back a piece
         public void checkAndHitBack(int boardIndex)
         {
             foreach (PieceSet s in pieces)
@@ -138,6 +139,17 @@ namespace Ludo
             dice.roll();
         }
 
+        //checks if the player's roll is 6. if so; player gets another throw.
+        public bool hasExtraMove()
+        {
+            if (getDiceValue() == 6)
+            {
+                numberOfThrows = 1;
+                return true;
+            }
+            else return false;
+        }
+
         public int move(int pieceSetIndex)
         {
             int index = pieces[pieceSetIndex].move(getDiceValue(), pieces);
@@ -160,7 +172,6 @@ namespace Ludo
             private static Random rand = new Random();
             private int value;
 
-            // setting defaulted diceSide to number1
             public Dice()
             {
                 roll();

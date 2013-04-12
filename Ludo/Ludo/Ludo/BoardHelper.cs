@@ -15,6 +15,10 @@ namespace Ludo
         static int[] bluePath = new int[63];
         static int[] redPath = new int[63];
 
+
+        //rect[] = array with rectangles which is being placed at each location it's at all possible to have a piece. 
+        //<color>Path[] = the given player's path. In other words; an array of ints. The value of each int, corresponds with an index in rect[]. 
+        //So if <color>Path[0] = 7, that means that any brick at <color>Path[0] will be placed at rectangle [7] in rect[].
         static BoardHelper()
         {
             //yellow starting field
@@ -95,7 +99,7 @@ namespace Ludo
             rect[66] = new Rectangle(315, 630, 45, 45);
             rect[67] = new Rectangle(270, 630, 45, 45);
 
-            //yellow branch
+            //yellow goal-branch
             rect[68] = new Rectangle(315, 585, 45, 45);
             rect[69] = new Rectangle(315, 540, 45, 45);
             rect[70] = new Rectangle(315, 495, 45, 45);
@@ -103,7 +107,7 @@ namespace Ludo
             rect[72] = new Rectangle(315, 405, 45, 45);
             rect[73] = new Rectangle(315, 360, 45, 45);
 
-            //green branch
+            //green goal-branch
             rect[74] = new Rectangle(45, 315, 45, 45);
             rect[75] = new Rectangle(90, 315, 45, 45);
             rect[76] = new Rectangle(135, 315, 45, 45);
@@ -111,7 +115,7 @@ namespace Ludo
             rect[78] = new Rectangle(225, 315, 45, 45);
             rect[79] = new Rectangle(270, 315, 45, 45);
 
-            //blue branch
+            //blue goal-branch
             rect[80] = new Rectangle(315, 45, 45, 45);
             rect[81] = new Rectangle(315, 90, 45, 45);
             rect[82] = new Rectangle(315, 135, 45, 45);
@@ -119,7 +123,7 @@ namespace Ludo
             rect[84] = new Rectangle(315, 225, 45, 45);
             rect[85] = new Rectangle(315, 270, 45, 45);
 
-            //red branch
+            //red goal-branch
             rect[86] = new Rectangle(585, 315, 45, 45);
             rect[87] = new Rectangle(540, 315, 45, 45);
             rect[88] = new Rectangle(495, 315, 45, 45);
@@ -251,60 +255,5 @@ namespace Ludo
         {
             return bluePath;
         }
-
-
-
-        /*public void move()
-        {
-            if (currentPosOne < yellowPath.Length || currentPosTwo < yellowPath.Length || currentPosThree < yellowPath.Length || currentPosFour < yellowPath.Length)
-            {
-
-                //brikke 1
-                if (mousePos.Intersects(fields[yellowPath[currentPosOne]]) && currentPosOne < 63)
-                {
-                    Console.WriteLine("Goalcount:" + yellowGoal);
-                    Console.WriteLine("Currentpos:" + currentPosOne);
-                    currentPosOne++;
-
-                    if (currentPosOne == 62)
-                        yellowGoal = yellowGoal + 1;
-                }
-
-                //brikke 2
-                if (mousePos.Intersects(fields[yellowPath[currentPosTwo]]) && currentPosTwo < 63)
-                {
-                    Console.WriteLine("Goalcount:" + yellowGoal);
-                    Console.WriteLine("Currentpos:" + currentPosTwo);
-                    currentPosTwo++;
-
-                    if (currentPosTwo == 62)
-                        yellowGoal = yellowGoal + 1;
-                }
-
-                //brikke 3
-                if (mousePos.Intersects(fields[yellowPath[currentPosThree]]) && currentPosThree < 63)
-                {
-                    Console.WriteLine("Goalcount:" + yellowGoal);
-                    Console.WriteLine("Currentpos:" + currentPosThree);
-                    currentPosThree++;
-
-                    if (currentPosThree == 62)
-                        yellowGoal = yellowGoal + 1;
-                }
-
-                //brikke 4
-                if (mousePos.Intersects(fields[yellowPath[currentPosFour]]) && currentPosFour < 63)
-                {
-                    Console.WriteLine("Goalcount:" + yellowGoal);
-                    Console.WriteLine("Currentpos:" + currentPosFour);
-                    currentPosFour++;
-
-                    if (currentPosFour == 62)
-                        yellowGoal = yellowGoal + 1;
-                }
-            }
-
-        }*/
-
     }
 }

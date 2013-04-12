@@ -12,7 +12,6 @@ namespace Ludo
         public int getAiMove(GameModel model)
         {
 			rollDice();
-			
 			Random rand = new Random();
 			int pieceIndex = rand.Next(0, 4);
 

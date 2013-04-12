@@ -28,16 +28,14 @@ namespace Ludo
         TimeSpan time;
         TimeSpan songDuration;
 
+        //Mouse & keyboard
         KeyboardState key;
         KeyboardState previousKey;
-
         MouseState mouse;
         MouseState previousMouse;
         Rectangle mousePos;
         Rectangle prevMousePos;
 
-
-        //Font for the writing
         SpriteFont soundMusic;
         MediaState media;
 

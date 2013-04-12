@@ -32,18 +32,15 @@ namespace Ludo
 
         public void LoadContent(ContentManager content)
         {
-            sound = content.Load<SoundEffect>("Zelda Title Theme");
             soundInstance = sound.CreateInstance();
-
+            sound = content.Load<SoundEffect>("Zelda Title Theme");
             soundMusic = content.Load<SpriteFont>("Sound_Music");
         }
 
         public void update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            {
                 soundInstance.Dispose();
-            }
 
             //Gets the state of the soundEffect, to prevent the soundInstance, to change state more than once a frame.
             sfx = soundInstance.State;
@@ -64,25 +61,19 @@ namespace Ludo
         public void playSound(SoundEffectInstance soundInstance)
         {
             if (keyboard.IsKeyDown(Keys.A) && previousKey.IsKeyUp(Keys.A) && soundInstance.State != SoundState.Playing && soundInstance.State == sfx)
-            {
                 soundInstance.Play();
-            }
         }
 
         public void stopSound(SoundEffectInstance soundInstance)
         {
             if (keyboard.IsKeyDown(Keys.D) && previousKey.IsKeyUp(Keys.D) && soundInstance.State == SoundState.Playing)
-            {
                 soundInstance.Stop();
-            }
         }
 
         public void pauseSound(SoundEffectInstance soundInstance)
         {
             if (keyboard.IsKeyDown(Keys.A) && previousKey.IsKeyUp(Keys.A) && soundInstance.State == SoundState.Playing && soundInstance.State == sfx)
-            {
                 soundInstance.Pause();
-            }
         }
 
         public void adjustVolume(SoundEffectInstance soundInstance)
@@ -90,17 +81,13 @@ namespace Ludo
             if (keyboard.IsKeyDown(Keys.F) && previousKey.IsKeyUp(Keys.F))
             {
                 if (soundInstance.Volume > 0.1f)
-                {
                     soundInstance.Volume -= 0.1f;
-                }
             }
 
             if (keyboard.IsKeyDown(Keys.G) && previousKey.IsKeyUp(Keys.G))
             {
                 if (soundInstance.Volume < 1)
-                {
                     soundInstance.Volume += 0.1f;
-                }
             }
         }
 

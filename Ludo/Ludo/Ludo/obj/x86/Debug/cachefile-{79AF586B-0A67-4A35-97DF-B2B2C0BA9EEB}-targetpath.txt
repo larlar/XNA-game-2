@@ -77,3 +77,5 @@ Content\Die_3.xnb
 Content\Die_4.xnb
 Content\Die_5.xnb
 Content\Die_6.xnb
+Content\winscreen.xnb
+Content\RulesFont.xnb

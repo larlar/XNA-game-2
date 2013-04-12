@@ -11,9 +11,6 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Ludo
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
     
@@ -49,47 +46,27 @@ namespace Ludo
             gameMode = GameMode.MenuMode;
             board = new Board();
         }
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
+
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             graphics.ApplyChanges();
             base.Initialize();
         }
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
+
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             musicMaster.LoadContent(Content);
             soundMaster.LoadContent(Content);
             myBackground.LoadContent(Content);
             startMenu.LoadContent(Content);
             board.LoadContent(Content); 
-            // TODO: use this.Content to load your game content here
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
         }
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
         protected override void Update(GameTime gameTime)
         {
             switch (gameMode)
@@ -103,7 +80,6 @@ namespace Ludo
                         gameModel = model;
                         gameMode = GameMode.PlayingMode;
                         board.setModel(gameModel);
-
                         if (model.GetType() == typeof(ExitLudo))
                             Exit();
                     }
@@ -122,37 +98,31 @@ namespace Ludo
             {
                 this.Exit();
             }
-            // TODO: Add your update logic here
+
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
 
-            // TODO: Add your drawing code here
             spriteBatch.Begin();
 
             switch(gameMode){
                 case GameMode.MenuMode:
                     GraphicsDevice.Clear(Color.Coral);
                     startMenu.Draw(spriteBatch, graphics.GraphicsDevice);
+                    musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
                     break;
 
                 case GameMode.PlayingMode:
                     GraphicsDevice.Clear(Color.LightBlue);
                     myBackground.Draw(spriteBatch);
+                    musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
                     board.Draw(spriteBatch, graphics.GraphicsDevice);
                     break;
             }
 
-            musicMaster.Draw(spriteBatch, graphics.GraphicsDevice);
-            //soundMaster.Draw(spriteBatch, graphics.GraphicsDevice);
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }

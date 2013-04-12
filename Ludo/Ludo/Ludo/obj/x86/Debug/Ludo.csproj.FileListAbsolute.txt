@@ -252,3 +252,5 @@ C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Staff Credits.wma
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\ClockTown - Day1.wma
 C:\Users\Niklas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Hyrule Field Main Theme.wma
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\winscreen.xnb
+C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\RulesFont.xnb

@@ -688,6 +688,24 @@
       <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\Die_6.xnb</Output>
       <Time>2013-04-11T18:46:25.9046274+02:00</Time>
     </Item>
+    <Item>
+      <Source>winscreen.png</Source>
+      <Name>winscreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\winscreen.xnb</Output>
+      <Time>2013-04-12T15:55:32.2755741+02:00</Time>
+    </Item>
+    <Item>
+      <Source>RulesFont.spritefont</Source>
+      <Name>RulesFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andreas\Documents\GitHub\XNA-game-2\Ludo\Ludo\Ludo\bin\x86\Debug\Content\RulesFont.xnb</Output>
+      <Time>2013-04-12T17:45:26.5615559+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
