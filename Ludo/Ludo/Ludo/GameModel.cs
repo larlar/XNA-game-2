@@ -55,11 +55,17 @@ namespace Ludo
  
             if(currentPlayer.isAI())
             {
-               lastBoardIndex = ((IAi)currentPlayer).getAiMove(this);
-               hasRolledDice = false;
-               checkForKnockHome();
-               Console.Out.WriteLine(currentPlayer.getColor() + " AI-player finished.");
-               setNextPlayer();
+
+                lastBoardIndex = ((IAi)currentPlayer).getAiMove(this);
+
+                currentPlayer.minusThrows();
+                currentPlayer.hasExtraMove();
+                if (currentPlayer.getThrowsLeft() == 0)
+                {
+                    currentPlayer.resetAmountOfThrows();
+                    checkForKnockHome();
+                    setNextPlayer();
+                }              
             }
  
             previousKey = key;
@@ -78,9 +84,13 @@ namespace Ludo
             {
                 currentPlayer.minusThrows();
                 hasRolledDice = true;
-                Console.WriteLine(currentPlayer.getColor() + " player has "+currentPlayer.getThrowsLeft() + " throws left.");
             }
-            
+
+            if (currentPlayer.isHomeClickable() && currentPlayer.getThrowsLeft() == 0 && currentPlayer.getDiceValue() != 6)
+            {
+                currentPlayer.resetAmountOfThrows();
+                setNextPlayer();
+            }
             // Left mouse click
             if (Mouse.GetState().LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
             {
@@ -92,7 +102,7 @@ namespace Ludo
  
                     Rectangle rect = BoardHelper.getFields()[pieces[i].getBoardIndex()].getRectangle();
                     Rectangle goal = BoardHelper.getFields()[62].getRectangle();
-
+ 
                     if (mousePos.Intersects(rect) && hasRolledDice == true && !mousePos.Intersects(goal)) // has clicked a piece object
                     {
                         lastBoardIndex = currentPlayer.move(i);
@@ -153,7 +163,6 @@ namespace Ludo
                 currentPlayer = redPlayer;
             else if (currentPlayer.getColor() == Player.Color.Red)
                 currentPlayer = yellowPlayer;
-            Console.Out.WriteLine("Current player = "+currentPlayer.getColor());
         }
 
         // check if you land on another piece. if so; move other piece back to home.

@@ -159,11 +159,33 @@ namespace Ludo
 
         public bool isAI()
         {
-            //return (this is IAi);
-            bool b = (this is IAi);
-            if (b)
-                Console.Out.WriteLine(getColor() + "player is instance of AI");
-            return b;
+            return (this is IAi);
+        }
+
+        public bool isHomeClickable()
+        {
+            if (!isAllPiecesInBaseOrGoal() && getDiceValue() != 6)
+                return false;
+            else
+                return true;
+
+        }
+
+        //checks how many pieces is outside the base
+        public int piecesOutsideBase()
+        {
+            int sum = 0;
+
+            if (pieces[0].getPosition() != 0 && pieces[0].getPosition() != 62)
+                sum++;
+            if (pieces[1].getPosition() != 1 && pieces[1].getPosition() != 62)
+                sum++;
+            if (pieces[2].getPosition() != 2 && pieces[2].getPosition() != 62)
+                sum++;
+            if (pieces[3].getPosition() != 3 && pieces[3].getPosition() != 62)
+                sum++;
+
+            return sum;
         }
 
         private class Dice
