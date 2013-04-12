@@ -29,18 +29,22 @@ namespace Ludo
         int lastBoardIndex;
         bool gameOver;
 
-        public GameModel()
+        public GameModel() {}
+
+        public GameModel(Player y, Player g, Player b, Player r)
         {
-            yellowPlayer = new Player(Player.Color.Yellow);
-            redPlayer = new Player(Player.Color.Red, new MoronAI());
-            greenPlayer = new Player(Player.Color.Green, new MoronAI());
-            bluePlayer = new Player(Player.Color.Blue, new MoronAI());
+            this.yellowPlayer = y; 
+            this.redPlayer = r;
+            this.greenPlayer = g;
+            this.bluePlayer = b;
+  
             currentPlayer = redPlayer;
             mousePos = new Rectangle(0, 0, 1, 1);
             previousMouse = Mouse.GetState();
             lastBoardIndex = -1;
             gameOver = false;
         }
+
         public void update(GameTime gameTime)
         {
             //checks if a player has won. if a player has won, his turn will be skipped all the time.
@@ -51,9 +55,13 @@ namespace Ludo
 
             if(currentPlayer.isAI())
             {
-                currentPlayer.moveAiPiece();
+
+                lastBoardIndex = ((IAi)currentPlayer).getAiMove(this);
+                hasRolledDice = false;
                 //checkForKnockHome();
+                Console.Out.WriteLine(currentPlayer.getColor() + " AI-player finished.");
                 setNextPlayer();
+                
             }
 
             previousKey = key;
@@ -73,14 +81,14 @@ namespace Ludo
                 //currentPlayer.rollDice();
                 currentPlayer.minusThrows();
                 hasRolledDice = true;
-                Console.WriteLine(currentPlayer.getThrowsLeft());
+                Console.WriteLine(currentPlayer.getColor() + " player has "+currentPlayer.getThrowsLeft() + " throws left.");
             }
 
-            if (currentPlayer.getThrowsLeft() == 0 && currentPlayer.getDiceValue() != 6)
+            /*if (currentPlayer.getThrowsLeft() == 0 && currentPlayer.getDiceValue() != 6)
             {
                 currentPlayer.resetAmountOfThrows();
                 setNextPlayer();
-            }
+            }*/
 
             // Left mouse click
             if (Mouse.GetState().LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
@@ -167,6 +175,7 @@ namespace Ludo
                 currentPlayer = redPlayer;
             else if (currentPlayer.getColor() == Player.Color.Red)
                 currentPlayer = yellowPlayer;
+            Console.Out.WriteLine("Current player = "+currentPlayer.getColor());
         }
 
 

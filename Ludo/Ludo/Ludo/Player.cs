@@ -14,12 +14,9 @@ namespace Ludo
 {
     class Player
     {
-        
-        PieceSet[] pieces;
+        protected PieceSet[] pieces;
         Color color;
-        Type type;
         int numberOfThrows;
-        IAi brain;
         Dice dice;
 
         public enum Color
@@ -31,20 +28,9 @@ namespace Ludo
             human, ai
         }
 
-        public Player(Color color, IAi brain)
-        {
-            init(color);
-            type = Player.Type.ai;
-            this.brain = brain;
+        public Player() {}
 
-        }
         public Player(Color color)
-        {
-            init(color);
-            type = Player.Type.human;
-        }
-
-        private void init(Color color)
         {
             int[] path = new int[63];
             this.color = color;
@@ -161,14 +147,11 @@ namespace Ludo
 
         public bool isAI()
         {
-            return type == Type.ai;
-        }
-
-        public void moveAiPiece()
-        {
-            rollDice();
-            int pieceIndex = brain.getMove(getDiceValue(), pieces);
-            pieces[pieceIndex].move(getDiceValue(), pieces);
+            //return (this is IAi);
+            bool b = (this is IAi);
+            if (b)
+                Console.Out.WriteLine(getColor() + "player is instance of AI");
+            return b;
         }
 
         private class Dice

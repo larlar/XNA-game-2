@@ -63,15 +63,30 @@ namespace Ludo
             mousePos.Y = mouse.Y;
 
             if (Keyboard.GetState().IsKeyDown(Keys.D1) || mousePos.Intersects(rectArray[0]) && mouse.LeftButton == ButtonState.Pressed)
-                return new GameModel();
+                return new GameModel(new Player(Player.Color.Yellow),
+                                     new MoronPlayer(Player.Color.Green),
+                                     new MoronPlayer(Player.Color.Blue),
+                                     new MoronPlayer(Player.Color.Red));
             else if (Keyboard.GetState().IsKeyDown(Keys.D2) || mousePos.Intersects(rectArray[1]) && mouse.LeftButton == ButtonState.Pressed)
-                return new GameModel();
+                return new GameModel(new MoronPlayer(Player.Color.Yellow),
+                                     new Player(Player.Color.Green),
+                                     new MoronPlayer(Player.Color.Blue),
+                                     new Player(Player.Color.Red));
             else if (Keyboard.GetState().IsKeyDown(Keys.D3) || mousePos.Intersects(rectArray[2]) && mouse.LeftButton == ButtonState.Pressed)
-                return new GameModel();
+                return new GameModel(new Player(Player.Color.Yellow),
+                                     new Player(Player.Color.Green),
+                                     new MoronPlayer(Player.Color.Blue),
+                                     new Player(Player.Color.Red));
             else if (Keyboard.GetState().IsKeyDown(Keys.D4) || mousePos.Intersects(rectArray[3]) && mouse.LeftButton == ButtonState.Pressed)
-                return new GameModel();
+                return new GameModel(new Player(Player.Color.Yellow),
+                                     new Player(Player.Color.Green),
+                                     new Player(Player.Color.Blue),
+                                     new Player(Player.Color.Red));
             else if (Keyboard.GetState().IsKeyDown(Keys.D5) || mousePos.Intersects(rectArray[4]) && mouse.LeftButton == ButtonState.Pressed)
-                return new GameModel();
+                return new GameModel(new MoronPlayer(Player.Color.Yellow),
+                                     new MoronPlayer(Player.Color.Green),
+                                     new MoronPlayer(Player.Color.Blue),
+                                     new MoronPlayer(Player.Color.Red));
             else if (Keyboard.GetState().IsKeyDown(Keys.LeftControl) && Keyboard.GetState().IsKeyDown(Keys.Q) || mousePos.Intersects(rectArray[5]) && mouse.LeftButton == ButtonState.Pressed)
                 return new ExitLudo();
             else
