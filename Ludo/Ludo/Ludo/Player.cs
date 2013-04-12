@@ -18,7 +18,9 @@ namespace Ludo
         PieceSet[] pieces;
         Color color;
         Type type;
-        int numberOfThrows = 3;
+        int numberOfThrows;
+        IAi brain;
+        Dice dice;
 
         public enum Color
         {
@@ -29,24 +31,38 @@ namespace Ludo
             human, ai
         }
 
-        public Player(Color color, Type type)
+        public Player(Color color, IAi brain)
         {
-            int[] path = new int[63]; 
+            init(color);
+            type = Player.Type.ai;
+            this.brain = brain;
+
+        }
+        public Player(Color color)
+        {
+            init(color);
+            type = Player.Type.human;
+        }
+
+        private void init(Color color)
+        {
+            int[] path = new int[63];
             this.color = color;
-            this.type = type;
+            dice = new Dice();
+            numberOfThrows = 3;
             switch (color)
             {
                 case Color.Yellow:
-                    path = BoardHelper.getYellowPath();  
+                    path = BoardHelper.getYellowPath();
                     break;
                 case Color.Green:
                     path = BoardHelper.getGreenPath();
                     break;
                 case Color.Blue:
-                    path = BoardHelper.getBluePath();  
+                    path = BoardHelper.getBluePath();
                     break;
                 case Color.Red:
-                    path = BoardHelper.getRedPath();    
+                    path = BoardHelper.getRedPath();
                     break;
             }
             pieces = new PieceSet[4];
@@ -60,9 +76,7 @@ namespace Ludo
         {
             foreach (PieceSet s in pieces)
             {
-                int i = s.getBoardIndex();
-                //Console.Out.WriteLine("Player " + color.ToString() + " " + i.ToString());
-                if (i == boardIndex)
+                if (s.getBoardIndex() == boardIndex)
                 {
                     s.hitBackToStart(pieces);
                     return;
@@ -73,11 +87,6 @@ namespace Ludo
         public PieceSet[] getPieceLoactions()
         {
             return pieces;
-        }
-
-        public int getPiecePath(int pos)
-        {
-            return pieces[pos].getPosition();
         }
 
         public bool isAllPiecesInBaseOrGoal() 
@@ -104,14 +113,6 @@ namespace Ludo
                 return false;
         }
 
-        public bool canMove(int diceValue)
-        {
-            if (!isAllPiecesInBaseOrGoal() || diceValue == 6)
-                return true;
-            else
-                return false;
-        }
-
         public int getThrowsLeft()
         {
             return numberOfThrows;
@@ -130,21 +131,71 @@ namespace Ludo
         public void resetAmountOfThrows()
         {
             if (isAllPiecesInBaseOrGoal())
-                setThrows(3);
+                numberOfThrows = 3;
+
             else
-                setThrows(1);
-        }
-
-
-
-        public bool isAI()
-        {
-            return type == Type.ai;
+                numberOfThrows = 1;
         }
 
         public Color getColor()
         {
             return color;
         }
+
+        public int getDiceValue()
+        {
+            return dice.getValue();
+        }
+
+        public void rollDice()
+        {
+            dice.roll();
+        }
+
+        public int move(int pieceSetIndex)
+        {
+            int index = pieces[pieceSetIndex].move(getDiceValue(), pieces);
+                resetAmountOfThrows();
+            return index;
+        }
+
+        public bool isAI()
+        {
+            return type == Type.ai;
+        }
+
+        public void moveAiPiece()
+        {
+            rollDice();
+            int pieceIndex = brain.getMove(getDiceValue(), pieces);
+            pieces[pieceIndex].move(getDiceValue(), pieces);
+        }
+
+        private class Dice
+        {
+            private const int sides = 6;
+            private static Random rand = new Random();
+            private int value;
+
+            // setting defaulted diceSide to number1
+            public Dice()
+            {
+                roll();
+            }
+
+            // get method for the diceSide value
+            public int getValue()
+            {
+                return value;
+            }
+
+            // The basic roll method that rolles the dice to a random side every thime the dice(s) are rolled.
+            public void roll()
+            {
+                value = rand.Next(1, sides + 1);
+            }
+        }
+
     }
+ 
 }

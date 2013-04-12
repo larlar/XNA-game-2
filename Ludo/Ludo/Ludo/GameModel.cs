@@ -19,7 +19,6 @@ namespace Ludo
         Player currentPlayer;
 
         Rectangle mousePos;
-        Dice dice;
         KeyboardState key;
         KeyboardState previousKey;
 
@@ -27,99 +26,92 @@ namespace Ludo
         MouseState mstate;
         Random rand = new Random();
         bool hasRolledDice;
-        int lastBoardIndex = -1;
+        int lastBoardIndex;
+        bool gameOver;
 
         public GameModel()
         {
-            yellowPlayer = new Player(Player.Color.Yellow, Player.Type.human);
-            redPlayer = new Player(Player.Color.Red, Player.Type.human);
-            greenPlayer = new Player(Player.Color.Green, Player.Type.human);
-            bluePlayer = new Player(Player.Color.Blue, Player.Type.human);
+            yellowPlayer = new Player(Player.Color.Yellow);
+            redPlayer = new Player(Player.Color.Red, new MoronAI());
+            greenPlayer = new Player(Player.Color.Green, new MoronAI());
+            bluePlayer = new Player(Player.Color.Blue, new MoronAI());
             currentPlayer = redPlayer;
             mousePos = new Rectangle(0, 0, 1, 1);
             previousMouse = Mouse.GetState();
-            dice = new Dice();
+            lastBoardIndex = -1;
+            gameOver = false;
         }
         public void update(GameTime gameTime)
-
         {
             //checks if a player has won. if a player has won, his turn will be skipped all the time.
             if (currentPlayer.hasPlayerWon())
             {
-                setNextPlayer();
+                gameOver = true;
             }
 
-            if (currentPlayer.isAI())
+            if(currentPlayer.isAI())
             {
-                bestAiMove();
-                return;
+                currentPlayer.moveAiPiece();
+                //checkForKnockHome();
+                setNextPlayer();
             }
 
             previousKey = key;
             mstate = Mouse.GetState();
             key = Keyboard.GetState();                 
 
-            if (key.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0) //roll animation
+            // Rolling dice while holding space
+            if (key.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
             {
-                dice.roll();
-                hasRolledDice = true;
-                //return;
+                currentPlayer.rollDice();
+                return;
             }
 
+            //Stops rolling dice, when you release space. Finishes a throw, and subtracts from throwsLeft.
             if (key.IsKeyUp(Keys.Space) && previousKey.IsKeyDown(Keys.Space) && currentPlayer.getThrowsLeft() > 0)
             {
+                //currentPlayer.rollDice();
                 currentPlayer.minusThrows();
-                //Console.WriteLine(currentPlayer.getThrowsLeft());
+                hasRolledDice = true;
+                Console.WriteLine(currentPlayer.getThrowsLeft());
             }
 
-            
-            if (previousMouse.LeftButton == ButtonState.Released && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            if (currentPlayer.getThrowsLeft() == 0 && currentPlayer.getDiceValue() != 6)
             {
+                currentPlayer.resetAmountOfThrows();
+                setNextPlayer();
+            }
 
+            // Left mouse click
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed && previousMouse.LeftButton == ButtonState.Released)
+            {
                 mousePos.X = mstate.X;
                 mousePos.Y = mstate.Y;
-                PieceSet[] pieceSet = currentPlayer.getPieceLoactions();
-                Rectangle goal = BoardHelper.getFields()[62].getRectangle();
-
-                for (int i = 0; i < pieceSet.Length; i++)
+                PieceSet[] pieces = currentPlayer.getPieceLoactions();
+                for (int i = 0; i < pieces.Length; i++)
                 {
-                    Rectangle rect = BoardHelper.getFields()[pieceSet[i].getBoardIndex()].getRectangle();
-                    if (mousePos.Intersects(rect) && hasRolledDice == true)
+
+                    Rectangle rect = BoardHelper.getFields()[pieces[i].getBoardIndex()].getRectangle();
+                    Rectangle goal = BoardHelper.getFields()[62].getRectangle();
+                    if (mousePos.Intersects(rect) && hasRolledDice == true) // has clicked a piece object
                     {
-                        Console.WriteLine("loop 1");
-                        lastBoardIndex = pieceSet[i].move(dice.getValue(), pieceSet);
-                        checkPieceInterception();
-
-                        if (dice.getValue() == 6) //one extra throw
-                        {
-                            currentPlayer.setThrows(1);
-                        }
-
-                        hasRolledDice = false;
-                    }
-
-                    
-                    if (mousePos.Intersects(rect) && currentPlayer.getThrowsLeft() == 0 && !mousePos.Intersects(goal))
-                    {
-                        Console.WriteLine("loop 2");
-                        currentPlayer.resetAmountOfThrows();
+                        lastBoardIndex = currentPlayer.move(i);
+                        checkForKnockHome();
                         hasRolledDice = false;
                         setNextPlayer();
                     }
-                    previousMouse = mstate;
                 }
+                previousMouse = mstate;
             }
-            else
-            {
-                if (mstate.LeftButton == ButtonState.Released)
-                    previousMouse = mstate;
-            }
+            else if (mstate.LeftButton == ButtonState.Released)
+                    previousMouse = mstate;    
         }
 
-        private void checkPieceInterception()
+        // check if you land on another piece. if so; move other piece back to home.
+        private void checkForKnockHome()
         {
-            if (lastBoardIndex == -1)
-                return; // no move to check
+            if (lastBoardIndex < 0) // did not move
+                return;
             if (currentPlayer != yellowPlayer)
                 yellowPlayer.checkAndHitBack(lastBoardIndex);
             if (currentPlayer != greenPlayer)
@@ -160,6 +152,11 @@ namespace Ludo
             return redPlayer;
         }
 
+        public bool isGameOver()
+        {
+            return gameOver;
+        }
+
         private void setNextPlayer()
         {
             if (currentPlayer.getColor() == Player.Color.Yellow)
@@ -172,42 +169,9 @@ namespace Ludo
                 currentPlayer = yellowPlayer;
         }
 
-        public Dice getDice()
-        {
-            return dice;
-        }
 
-        public void bestAiMove()
-        {
-            PieceSet[] set = currentPlayer.getPieceLoactions();
-            dice.roll();
-            set[rand.Next(0, 4)].move(dice.getValue(), set);
-            setNextPlayer();
-        }
+        
     }
 
-    public class Dice
-    {
-        private const int sides = 6;
-        private static Random rand = new Random();
-        private int value;
-
-        // setting defaulted diceSide to number1
-        public Dice()
-        {
-            roll();
-        }
-
-        // get method for the diceSide value
-        public int getValue()
-        {
-            return value;
-        }
-
-        // The basic roll method that rolles the dice to a random side every thime the dice(s) are rolled.
-        public void roll()
-        {
-            value = rand.Next(1, sides + 1);
-        }
-    }
+   
 }

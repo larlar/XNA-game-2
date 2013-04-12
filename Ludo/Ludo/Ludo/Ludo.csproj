@@ -115,6 +115,8 @@
     <Compile Include="ExitLudo.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="GameModel.cs" />
+    <Compile Include="IAi.cs" />
+    <Compile Include="MoronAI.cs" />
     <Compile Include="PieceSet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="StartMenu.cs" />

@@ -43,9 +43,11 @@ namespace Ludo
             drawPieces(model.getRedPositions(), redTextures, spriteBatch);
 
             //sideboard
-            spriteBatch.Draw(diceTextures[model.getDice().getValue() - 1], new Rectangle(screenWidth - 170, 120, 80, 80), Color.White); //dice
+            spriteBatch.Draw(diceTextures[model.getCurrentPlayer().getDiceValue() - 1], new Rectangle(screenWidth - 170, 120, 80, 80), Color.White); //dice
             spriteBatch.DrawString(sideMenuFont, "Current turn: ", new Vector2(screenWidth-250, 250), Color.Black); //current turn: text
             drawCurrentPlayerInSideboard(spriteBatch, graphicsDevice); // curent turn icon
+            if (model.isGameOver())
+                spriteBatch.Draw(yellowTextures[0], new Rectangle(0, 0, screenWidth, screenHeight), Color.Beige); 
             //drawWinner(spriteBatch, graphicsDevice);
         }
 
